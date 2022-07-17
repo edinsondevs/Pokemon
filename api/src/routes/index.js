@@ -2,12 +2,12 @@ const { Router } = require('express');
 const axios = require('axios');
 const { Pokemon, Type } = require('../db.js');
 const { Op } = require('sequelize')
-// Importar todos los routers;
-// Ejemplo: const authRouter = require('./auth.js');
-<<<<<<< HEAD
-
 
 const app = Router();
+// Importar todos los routers;
+// Ejemplo: const authRouter = require('./auth.js');
+const typeRoutes = require('../controller/typesPokemon.js');
+
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -15,20 +15,11 @@ const app = Router();
 //*************************************************************************************************************************************************************/
 // GET https://pokeapi.co/api/v2/type
 /*******************************                  BUSQUEDA DE LOS TIPOS DE POKEMONES           ****************************************************************/
-=======
-const typeRoutes = require('../controller/typesPokemon.js');
-
-const app = Router();
-
-
-// Configurar los routers
-// Ejemplo: router.use('/auth', authRouter);
 app.use('/types', typeRoutes)
 //*************************************************************************************************************************************************************/
 // GET https://pokeapi.co/api/v2/type
 /*******************************                  BUSQUEDA DE LOS TIPOS DE POKEMONES           ****************************************************************/
 /*
->>>>>>> 288ba24 (PI Pokemon)
 app.get('/types', async (req, res) => {
     try {
         const typeApi = await axios.get('https://pokeapi.co/api/v2/type')
@@ -48,11 +39,8 @@ app.get('/types', async (req, res) => {
 //*************************************************************************************************************************************************************/
 // GET https://pokeapi.co/api/v2/pokemon/{name}
 /*******************************                  BUSQUEDA DE POKEMON POR NOMBRE           ****************************************************************/
-<<<<<<< HEAD
 
-=======
 /*
->>>>>>> 288ba24 (PI Pokemon)
 app.get('/pokemon', async (req, res) => {
     const name = req.query.name;
 
@@ -71,11 +59,8 @@ app.get('/pokemon', async (req, res) => {
     //     defense: dataApi.stats[2].base_stat,
     //     speed: dataApi.stats[5].base_stat,
     // }
-<<<<<<< HEAD
 
-=======
 /*
->>>>>>> 288ba24 (PI Pokemon)
     const dataDb = await Pokemon.findAll({
         attributes: [
         "id",
@@ -149,10 +134,10 @@ app.get('/pokemon', async (req, res) => {
     // GET https://pokeapi.co/api/v2/pokemon
     // GET https://pokeapi.co/api/v2/pokemon/{id}
 
-<<<<<<< HEAD
 
-=======
+
+
 */
->>>>>>> 288ba24 (PI Pokemon)
+
 
     module.exports = app;
