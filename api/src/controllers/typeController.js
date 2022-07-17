@@ -1,34 +1,31 @@
-const axios = require('axios');  //cambie la sintaxis de const axios a EMCAscript 6 pero me fallo
+const axios = require('axios'); 
 const { Type } = require('../db.js');
-const { URL_API_POKEMON_TYPE } = require('../utils/GlobalConst.js');
+const { URL_POKEMON_TYPE } = require('../utils/GlobalConst.js');
 
 
+//************************************************************************************************
+/**       BUSQUEDA Y CARGA DE LOS TIPOS DE POKEMON ENCONTRADOS EN LA API            */
 const getTypesTotal = async () => {
     try {
-        const foundTypesDB = await Type.findAll({
-            attributes: ['name']
-        });
-        if(foundTypesDB.length === 0){
-            const typesPokeapi = await axios.get(URL_API_POKEMON_TYPE);
-            let typesCreatedDB = typesPokeapi.data.results.map(type => Type.create({name: type.name}));  //me guarda types en DB
-            typesCreatedDB = await axios.all(typesCreatedDB);
-            const getTypesPokeapi = getTypes(typesCreatedDB);
-            return getTypesPokeapi;
-        }else{
-            const getTypesPokeDB = getTypes(foundTypesDB);
-            return getTypesPokeDB;
-        }
+        const typeApi = await axios.get(URL_POKEMON_TYPE);              //BUSCO TODOS LOS TIPOS DE POKEMON EN LA API
+        const pokeTypes = typeApi.data.results.map(e => e.name)
+        pokeTypes.forEach(data => {
+            Type.findOrCreate({                                         //CON EL RESULTADO BUSCO EN LA DB Y SI NO EXISTE LO CREO
+                where: { name: data }
+            })
+        })
+        const allTypes = await Type.findAll({                           //BUSCO TODO LO QUE TENGO EN LA DB, PERO SOLO EL CAMPO NAME DE LA TABLA
+            attributes: ["name"]
+        })
+        const allTypesPoke = allTypes.map(e => e.name)
+        // console.log(allTypesPoke)
+        return allTypesPoke                                             //RETORNO UN ARRAY CON LO ENCONTRADO EN LA DB
+
     } catch (error) {
         console.log(error);
         return error;
     }
 }
-
-const getTypes = (array) => {
-    let types = array.map( type => type.name);
-    return types;
-}
-
 
 module.exports = {
     getTypesTotal,
