@@ -176,11 +176,7 @@ __IMPORTANTE__: No está permitido utilizar los filtrados, ordenamientos y pagin
 - [ ] __POST /pokemons__:
   - Recibe los datos recolectados desde el formulario controlado de la ruta de creación de pokemons por body
   - Crea un pokemon en la base de datos relacionado con sus tipos.
-<<<<<<< HEAD
 - [x] __GET /types__:
-=======
-- [ ] __GET /types__:
->>>>>>> 288ba24 (PI Pokemon)
   - Obtener todos los tipos de pokemons posibles
   - En una primera instancia deberán traerlos desde pokeapi y guardarlos en su propia base de datos y luego ya utilizarlos desde allí
 
