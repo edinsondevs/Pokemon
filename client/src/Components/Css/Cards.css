@@ -9,8 +9,25 @@
   color: aliceblue;
 }
 
-.filters{
-  
-  display: flex;
+.filters {
+	display: flex;
+	gap: 40px;
+	height: fit-content;
+  justify-content:center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-left: 0px;
 
+}
+
+.cmp-cards{
+  height: 90vh;
+  margin-left: 15em;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: white; */
+  
 }

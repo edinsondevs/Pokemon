@@ -35,7 +35,7 @@ h1 {
 
 .cmp-container-home{
     display: flex;
-    flex-direction: row;    
+    flex-direction: column;    
     margin-top: 200px;
     width: 100%;
     height: 100%;
@@ -100,6 +100,3 @@ p {
     clear: both;
 }
 
-.filters{
-    gap: 40px;
-}
