@@ -1,5 +1,6 @@
 const initialState = {
-    typePokemons: [],
+    typePoke: [],
+    allPokemons: []
 
 }
 export default function reducer (state = initialState, action) {
@@ -11,7 +12,16 @@ export default function reducer (state = initialState, action) {
                 typePokemons: action.payload
             }
 
-        default:
-            return state
+        case 'GET_ALL_POKE':    
+            return{
+                ...state,
+                allPokemons: action.payload
+            }
+            
+            
+            
+    default:
+        return state
     }
 }
+
