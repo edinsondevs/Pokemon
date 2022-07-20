@@ -1,7 +1,8 @@
 import  React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { typePokemons } from '../../Actions/Actions'
+import { typePokemons, allPokemons } from '../../Actions/Actions'
 import '../Css/Home.css';
+import Cards from './Cards';
 
 
 function Home() {
@@ -10,7 +11,7 @@ function Home() {
   // const [type, setType] = useState('');
   const [pokemon, setPokemon] = useState('');
   const [orden, setorden] = useState('');
-  const typesPokemon = useSelector((state) => state.typePokemons);
+  const typesPokemon = useSelector((state) => state.typePoke);
   // console.log(state)
 
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(typePokemons());
+    dispatch(allPokemons())
   }, [dispatch]);
 
 
@@ -31,13 +33,13 @@ function Home() {
         {/* </div> */}
                 <p>Filter by Type:</p>
         <select name='' id=''>
-          {typesPokemon ?
+          {/* {typesPokemon ?
             typesPokemon.map((e, i) => {
               return(
               <option value={e} key={i}> {e} </option>         
             )})
           : null
-          }
+          } */}
         </select>
                 <p>Filter by:</p>
         <select name='' id=''>
@@ -53,6 +55,11 @@ function Home() {
         </select>
         <p>Search </p>
         <input type='search' name='search' id='search-poke' placeholder='Search' />
+      </div>
+      <div className="cmp-cards">
+      <section>
+        <Cards />
+      </section>
       </div>
     </div>
   );
