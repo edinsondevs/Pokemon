@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card-container {
+  height: 90vh;
+  color: aliceblue;
+}
+
+.filters{
+  
+  display: flex;
+
+}
