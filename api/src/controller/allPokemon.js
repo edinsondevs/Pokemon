@@ -1,7 +1,7 @@
 const { Router } = require('express');
-const axios = require('axios');
-const { Pokemon, Type } = require('../db');
-const { URL_POKEMON, URL_POKEMON_NAME_OR_ID } = require('../utils/GlobalConst');
+// const axios = require('axios');
+// const { Pokemon, Type } = require('../db');
+// const { URL_POKEMON, URL_POKEMON_NAME_OR_ID } = require('../utils/GlobalConst');
 const { getAllPoke } = require('../controller/pokemonController.js');
 
 const app = Router();
@@ -49,26 +49,5 @@ app.get('/:id', async (req, res) => {
         console.log(error);
     }
 })
-
-app.post('/', async (req, res) => {
-    //   res.send('POST request to the homepage')
-    // const {img, name, weight, height, hp, attack, defense, speed, life, createdInDb } = req.body
-
-    // console.log(name)
-    // await Pokemon.create({
-    //     img,
-    //     name,
-    //     weight,
-    //     height,
-    //     hp,
-    //     attack,
-    //     defense,
-    //     speed,
-    //     life,
-    //     createdInDb
-    // })
-})
-
-
 
 module.exports = app

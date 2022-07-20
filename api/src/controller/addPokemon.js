@@ -5,7 +5,11 @@ const app = Router();
 
 app.post('/', async (req, res) => {
     //   res.send('POST request to the homepage add pokemon')
-    const {img, name, weight, height, hp, attack, defense, speed, life, type, createdInDb } = req.body
+    const {img, name, weight, height, hp, attack, defense, speed, life, type } = req.body
+
+    if( !img || !name || !weight || !height || !hp || !attack || !defense || !speed || !life || !type ){
+        res.status(400).send("Debe completar todos los datos")
+    } else {
     try {
         const newPokemon = await Pokemon.create({
             img,
@@ -16,8 +20,7 @@ app.post('/', async (req, res) => {
             attack,
             defense,
             speed,
-            life,
-            createdInDb
+            life            
         })
 
     let tipoPokemon = await Type.findAll({
@@ -29,7 +32,7 @@ app.post('/', async (req, res) => {
     res.send("El Pokemon ha sido creado exitosamente")
     } catch (error) {
         res.status(404).send(error.message)
-    }
+    }}
 })
 
 module.exports = app
