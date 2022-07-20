@@ -10,3 +10,13 @@ export const typePokemons = () => {
     }
     
 }
+
+export const allPokemons = () => {
+    return async (dispatch) => {
+        let allPokemons = await axios.get('http://localhost:3001/pokemons');
+        return dispatch({
+            type: 'GET_ALL_POKE',
+            payload: allPokemons.data
+        })
+    }
+}
