@@ -5,14 +5,14 @@ const app = Router();
 
 app.post('/', async (req, res) => {
     //   res.send('POST request to the homepage add pokemon')
-    const {img, name, weight, height, hp, attack, defense, speed, life, type } = req.body
+    const {sprite, name, weight, height, hp, attack, defense, speed, life, type } = req.body
 
-    if( !img || !name || !weight || !height || !hp || !attack || !defense || !speed || !life || !type ){
+    if( !sprite || !name || !weight || !height || !hp || !attack || !defense || !speed || !life || !type ){
         res.status(400).send("Debe completar todos los datos")
     } else {
     try {
         const newPokemon = await Pokemon.create({
-            img,
+            sprite,
             name,
             weight,
             height,
