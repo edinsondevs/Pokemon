@@ -1,5 +1,5 @@
 import { React } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import '../Css/Nav.css';
 
@@ -26,19 +26,20 @@ function Nav() {
                 </div>
             </div>
             <div id="leftcolumn">
-                {/* <div className="container_nav"> */}
-                    {/* <div className="cmp-nav botones"> */}
-                        <nav className="navbar">
-                            <ul className="navbar-nav">
-                                <li><NavLink exact to="/home">Home</NavLink></li>
-                                <li><NavLink to="/create">Create Pokemons</NavLink></li>
-                                <li><NavLink to="/about" >About</NavLink></li>
-                                {/* <li><SearchBar /></li>  */}
-                            </ul>
-                        </nav>
-                    {/* </div> */}
-                </div>
-            {/* </div> */}
+                <nav className="navbar">
+                    <ul className="navbar-nav">
+                        <li>
+                            <Link exact to="/home">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/create">Create Pokemons</Link>
+                        </li>
+                        <li>
+                            <Link to="/about" >About</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
 
     );

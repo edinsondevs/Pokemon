@@ -1,6 +1,20 @@
 import '../Css/PokemonCreate.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { typePokemons } from '../../Actions/Actions'
+import { useEffect } from 'react'
+
 
 function PokemonCreate() {
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(typePokemons())
+    },[dispatch])
+
+    const type = useSelector((state) => state.typePoke)
+
+    console.log(type)
     return (
         <div className="container-form">
             <form className="my-form">
@@ -21,7 +35,6 @@ function PokemonCreate() {
                         </li>
                         <li>
                             <div className="grid grid-2">
-                                {/* <label htmlFor="">Statistics</label> */}
                                 <input type="number" placeholder="Hp" required />
                                 <input type="number" placeholder="Attack" required />
                                 <input type="number" placeholder="Defense" required />
@@ -29,20 +42,22 @@ function PokemonCreate() {
                             </div>
                         </li>
                         <li>
+                            <label htmlFor="">Type Pokemon</label>
                             <select multiple="multiple">
-                                <option selected disabled>-- Choose one or more types --</option>
-                                <option>Request Quote</option>
-                                <option>Send Resume</option>
-                                <option>Other</option>
+                                {
+                                    type.map((e,i) => (
+                                        <option > {e} </option>
+                                    ))                                    
+                                } 
                             </select>
                         </li>
                         <li>
                             <div className="grid grid-3">
                                 <div className="required-msg">REQUIRED FIELDS</div>
                                 <button className="btn-grid" type="submit" >
-                                    <span className="back">
+                                    {/* <span className="back">
                                         <img src="IMG_SRC" alt="" />
-                                    </span>
+                                    </span> */}
                                     <span className="front">Create</span>
                                 </button>
                             </div>
