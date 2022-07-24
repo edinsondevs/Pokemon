@@ -1,0 +1,17 @@
+.cmp-notFound{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+        /* align-content: center; */
+}
+
+.cmp-notFound_text{
+    font-size: 4.5em;
+    /* color: #333 */
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(209, 238, 25, 0.5);
+    /* color: transparent; */
+    /* text-shadow: 3px 3px 0px 0px rgb(209, 238, 25, 0.5); */
+    /* font: italic bold 4.5em Georgia, Serif; */
+    /* text-shadow: -4px 3px 0 rgba(210, 238, 25, 0.723), -14px 7px 0 #0a0e27; */
+}

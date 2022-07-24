@@ -64,7 +64,7 @@ ul {
 }
 
 body {
-    font: 18px/1.5 "Open Sans", sans-serif;
+    /* font: 18px/1.5 "Open Sans", sans-serif; */
     background: var(--bodyColor);
     color: var(--white);
     margin: 1.5rem 0;
@@ -235,11 +235,11 @@ body {
 
 /* FOOTER
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-footer {
+/* footer {
     font-size: 1rem;
     text-align: right;
     backface-visibility: hidden;
-}
+} */
 
 footer a {
     text-decoration: none;

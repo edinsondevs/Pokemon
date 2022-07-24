@@ -1,0 +1,28 @@
+.paginate{
+ display: flex;
+margin-top: 45px;
+ /* height: 50px; */
+ align-self: center;
+ gap: 10px;
+}
+
+.container-pagginate{
+    display: flex;
+    flex-direction: column;    
+}
+
+.btn-number{
+    padding: 10px;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 3px 3px 0px 0px rgb(209, 238, 25, 0.5);
+}
+.btn-number:hover{
+    background-color: #fff;
+    color: black
+}
+.btn-number:active{
+    padding: 10px;
+    box-shadow: 0px 0px 0px 0px;
+}
