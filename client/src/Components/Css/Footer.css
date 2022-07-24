@@ -1,0 +1,16 @@
+/**************************************************************
+/
+/        Estilos del Footer
+/
+/**************************************************************/
+
+.container{
+    background-color:aliceblue;
+    display: inline;
+    border-top: 1px solid #ffff;
+
+}
+
+.child-container{
+    border-top: 1px solid #ffff;
+}

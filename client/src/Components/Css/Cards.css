@@ -4,30 +4,58 @@
   box-sizing: border-box;
 }
 
-.card-container {
-  height: 90vh;
-  color: aliceblue;
-}
 
 .filters {
-	display: flex;
+  display: flex;
 	gap: 40px;
 	height: fit-content;
   justify-content:center;
   margin-bottom: 20px;
   margin-top: 20px;
   margin-left: 0px;
+  
+}
 
+/**************************************************************
+//
+//        COMPONENTE CARD
+//
+//**************************************************************/
+.card-container {
+  height: 90vh;
+  color: aliceblue;
 }
 
 .cmp-cards{
-  height: 90vh;
-  margin-left: 15em;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  /* background-color: white; */
+  /* height: 90vh; */
+  width:75em;
+  align-self: center;
   
+}
+
+.cmp-container-cards{
+  padding-top: 50px; 
+  max-width: 60vw;
+  justify-content: center;  
+  align-self: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  /* background-color: cornflowerblue; */
+  gap: 4.5em;
+}
+
+.cmp-card{
+  /* position: absolute; */
+  /* background-color: white; */
+  width: 15em;
+  height: 25em;
+  gap: 8px;
+  border: 2px solid #fff;
+  padding: 15px;
+}
+
+.cmp-card_img{
+  width: 80px;
+  height:80px;
 }

@@ -36,9 +36,10 @@ h1 {
 .cmp-container-home{
     display: flex;
     flex-direction: column;    
-    margin-top: 200px;
-    width: 100%;
-    height: 100%;
+    float: right;
+    /* margin-top: 100px; */
+    width: 90%;
+    /* height: 100%; */
     justify-content:center;
     color: #fff;
 }
@@ -100,3 +101,23 @@ p {
     clear: both;
 }
 
+/************************************************************************************************/
+/*          LOADING DE LA CARGA DE TARJETAS                                                     */  
+/************************************************************************************************/
+.loading {
+    width: 500px;
+    height: 550px;
+    justify-content: center;
+    align-self: center;
+}
+
+.cartas{padding-top: 50px; 
+max-width: 60vw;
+justify-content: center;  
+align-self: center;
+display: flex;
+flex-wrap: wrap;
+flex-direction: row;
+/* background-color: cornflowerblue; */
+gap: 4.5em;
+}
