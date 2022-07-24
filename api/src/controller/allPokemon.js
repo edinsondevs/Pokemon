@@ -1,7 +1,4 @@
 const { Router } = require('express');
-// const axios = require('axios');
-// const { Pokemon, Type } = require('../db');
-// const { URL_POKEMON, URL_POKEMON_NAME_OR_ID } = require('../utils/GlobalConst');
 const { getAllPoke } = require('../controller/pokemonController.js');
 
 const app = Router();
@@ -11,18 +8,18 @@ app.get('/', async (req, res) => {
     //   res.send('Buscar los pokemons')
     const { name } = req.query
     const allPokemons = await getAllPoke();
-    console.log(name)
+    // console.log(name)
     if (name) {
-        try {
+        // try {
             // if (name) {
                 const pokemonName = await allPokemons.filter(e => e.name == name);
                 pokemonName.length ?
                     res.status(200).json(pokemonName) :
                     res.status(404).send('Pokemon not found')
             // }
-        } catch (error) {
-            console.log(error);
-        }
+        // } catch (error) {
+        //     console.log(error);
+        // }
     } else{
 
         try {

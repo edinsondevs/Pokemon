@@ -27,7 +27,7 @@ const getPokeapi = async () => { //Llamado doble a la api y a su suburl para tra
                 type: pokemon.data.types.map(e=> e.type.name)                
             }
         }) 
-        ) 
+    ) 
     return PokemonProps;
         
     } catch (error) {
@@ -55,7 +55,7 @@ const getPokedb = async () => {
             height: pokeDb.height,
             weight: pokeDb.weight,
             sprite: pokeDb.sprite,
-            types: pokeDb.types?.map(e => e.name),
+            type: pokeDb.types?.map(e => e.name),
             createdInDb: pokeDb.createdInDb
         };
     })
