@@ -22,10 +22,9 @@ export const getAllPokemons = () => {
 }
 
 export const searchByType = (payload) => {
-    console.log(payload)
     return {
         type: 'SEARCH_BY_TYPE',
-        payload,
+        payload
     }
 }
 
