@@ -25,11 +25,9 @@ export default function reducer(state = initialState, action) {
 
         case 'SEARCH_BY_TYPE':
             let searchByType = state.clonPokemons
-            let pokemonsByType = action.payload === 'All' ? searchByType 
+            let pokemonsByType = action.payload === 'All' ? searchByType
                 : searchByType.filter(e => e.type.includes(action.payload))
-           // let pokemonsByType = pokemonsType.length !== 0 ? pokemonsType : pokemonsType.push("NotFound")
-            if (pokemonsByType.length === 0){
-                // pokemonsByType.push("NotFound")
+            if (pokemonsByType.length === 0) {
                 pokemonsByType.push("NotFound")
             }
             return {
@@ -81,10 +79,9 @@ export default function reducer(state = initialState, action) {
                     return 0
                 })
             }
-            console.log(orderPokemons)
             return {
                 ...state,
-                allPokemons: orderPokemons
+                clonPokemons: orderPokemons
             }
         //  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
         case 'SEARCH_BY_NAME':
@@ -92,6 +89,14 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 allPokemons: action.payload
             })
+
+        //  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
+
+        case 'CREATE_POKEMON':
+            return {
+                ...state,
+            }
+
 
         default:
             return state
