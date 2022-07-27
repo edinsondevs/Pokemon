@@ -8,13 +8,13 @@ import '../Css/Cards.css'
             { 
                     <div className="cmp-card" >
                         <h2>{name}</h2>
-                        <p>{life}</p>
-                        <p>{attack}</p>
-                        <p>{defense}</p>
-                        <p>{speed}</p>
-                        <p>{height}</p>
-                        <p>{weight}</p>
                         <img src={img} alt="Not Found" className="cmp-card_img" />
+                        <p>HP: {life}</p>
+                        <p>Attack: {attack}</p>
+                        <p>Defense: {defense}</p>
+                        <p>Speed: {speed}</p>
+                        <p>Height: {height}</p>
+                        <p>Weight: {weight}</p>
                     </div>
                 // ))
             }

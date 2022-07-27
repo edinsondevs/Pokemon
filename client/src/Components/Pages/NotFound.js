@@ -5,8 +5,8 @@ import '../Css/NotFound.css';
 function NotFound() {
     return ( 
         <div className='cmp-notFound'>
-        <h1 className='cmp-notFound_text '>Not found</h1>
         <img src={Not_Found} alt="" className="loading" />
+        <h1 className='cmp-notFound_text '>Not found</h1>
         </div>
      );
 }

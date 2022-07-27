@@ -25,7 +25,7 @@ function Home() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
-  console.log(currentPoke)
+  // console.log(currentPoke)
   useEffect(() => {
     dispatch(getAllPokemons())
     dispatch(typePokemons())
@@ -56,12 +56,13 @@ function Home() {
   const handleInputName = (e) => {
     setName(e)
     // console.log(e)
+    // console.log(name);
   }
 
   const handleSubmit = (e) => {
-    console.log('enviar')
     e.preventDefault();
-    dispatch(searchByName(name))
+    // console.log(name)
+    dispatch(searchByName(name.toLocaleLowerCase()))
     setName('')
   }
 
@@ -70,6 +71,7 @@ function Home() {
       <Paginate pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginate={paginate} />
       {/* //! ***********************  SECCION DE FILTROS     ***********************************************************/}
       <div className='filters'>
+        {/******************************** FILTRO POR TIPO **********************************/}
         <p>Filter by Type:</p>
         <select name='search' id='search' onChange={(e) => searchType(e.target.value)}>
           <option value="All">All</option>
@@ -82,11 +84,13 @@ function Home() {
             : null
           }
         </select>
+        {/******************************** FILTRO POR CREACION **********************************/}
         <p>Filter by:</p>
         <select name='creation' id='creation' onChange={(e) => searcrCreation(e.target.value)}>
           <option value='pokeApi'>Existing</option>
           <option value='pokeDb'>Created</option>
         </select>
+        {/******************************** ORDENAMIENTO **********************************/}
         <p>Order by:</p>
         <select name='ordering' id='ordering' onChange={(e) => ordering(e.target.value)}>
           <option value='desc'>A - Z</option>
@@ -102,28 +106,28 @@ function Home() {
 
       {/* //! ***********************  SECCION DE CARDS     ***********************************************************/}
       <div className='cartas'>
-        {allPokemons.length === 0 ? <img src={Loading} alt="" className="loading" /> :
-          (allPokemons[0] === "NotFound" ? 
-          // <img src={NotFound} alt="" className="loading" /> 
-          <NotFound />
+        {allPokemons.length === 0 ? <img src={Loading} alt="" className="loading" />  // Si el length es 0 Cargo la imagen de pokemon Not Found
           :
+          (allPokemons[0] === "NotFound" ?
+            <NotFound />
+            :
 
-          currentPoke.map((e) => {
-            return (
-              <Cards
-                key={e.id}
-                name={e.name}
-                life={e.life}
-                attack={e.attack}
-                defense={e.defense}
-                speed={e.speed}
-                height={e.height}
-                weight={e.weight}
-                img={e.sprite}
-              />
-            )
-          })
-        )}
+            currentPoke.map((e,id) => {
+              return (
+                <Cards
+                  key={id}
+                  name={e.name}
+                  life={e.life}
+                  attack={e.attack}
+                  defense={e.defense}
+                  speed={e.speed}
+                  height={e.height}
+                  weight={e.weight}
+                  img={e.sprite}
+                />
+              )
+            })
+          )}
 
       </div>
 
