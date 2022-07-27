@@ -16,7 +16,7 @@ margin-top: 45px;
     background-color: transparent;
     color: #fff;
     border-radius: 7px;
-    box-shadow: 3px 3px 0px 0px rgb(209, 238, 25, 0.5);
+    box-shadow:  3px 3px 0px 0px #ecb51ee4;
 }
 .btn-number:hover{
     background-color: #fff;
