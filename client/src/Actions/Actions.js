@@ -4,11 +4,11 @@ export const typePokemons = () => {
     return async (dispatch) => {
         let type = await axios.get('http://localhost:3001/types');
         return dispatch({
-            type:'GET_TYPES_POKEMON',
+            type: 'GET_TYPES_POKEMON',
             payload: type.data
         })
     }
-    
+
 }
 
 export const getAllPokemons = () => {
@@ -29,7 +29,7 @@ export const searchByType = (payload) => {
 }
 
 export const searchByCreation = (payload) => {
-    return { 
+    return {
         type: 'SEARCH_BY_CREATION',
         payload
     }
@@ -43,24 +43,23 @@ export const getOrdering = (payload) => {
 }
 
 export const searchByName = (payload) => {
+
     return async function (dispatch) {
-        let json = await axios.get('https://pokeapi.co/api/v2/pokemon/'+payload);
+
+        let json = await axios.get('http://localhost:3001/pokemons?name=' + payload);
         let dataApi = json.data
-        const getPoke = {
-            id: dataApi.id,
-            sprite: dataApi.sprites.other.home.front_default,
-            name: dataApi.name,
-            hp: dataApi.stats[0].base_stat,
-            attack: dataApi.stats[1].base_stat,
-            defense: dataApi.stats[2].base_stat,
-            speed: dataApi.stats[5].base_stat,
-            height: dataApi.height,
-            weight: dataApi.weight,
-            type: dataApi.types.map(e => e.type.name)
-        }
         return dispatch({
             type: 'SEARCH_BY_NAME',
-            payload: getPoke
+            payload: dataApi       //dataApi
         })
+    }
+}
+
+export const createPokemons = (payload) => {
+    return async function () {
+        await axios.post('http://localhost:3001/pokemons/add', payload)
+        .then(response => {alert("Pokemon Created")})
+        .then(console.log("Pokemon Created"))
+        .catch(error => console.log(error))
     }
 }
