@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  text-align: center;  
+  min-height: 100vh;
+  justify-content: center;
 }
 
 .layout {
@@ -13,20 +15,20 @@
 
 .header {
   grid-area: header;
-  /* background-color: aqua; */
+  background-color: aqua;
 }
 
 .sidebar {
   grid-area: sidebar;
-  /* background-color:brown; */
+  background-color:brown;
 }
 
 .main {
   grid-area: main;
-  /* background-color: bisque; */
+  background-color: bisque;
 }
 
 .footer {
   grid-area: footer;
-  /* background-color: seagreen; */
+  background-color: seagreen;
 }

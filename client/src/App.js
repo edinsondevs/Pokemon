@@ -6,12 +6,16 @@ import LandingPage from './Components/Pages/LandingPage.js';
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <Switch >
-        <Route exact path="/" component={LandingPage} />
-        <Route exact path="/*" component={Init} />
-      </Switch>
-    </div>
+      <div className="App">
+        <Switch >
+          <Route path="/" exact >
+            <LandingPage />
+          </Route>
+          <Route path="/*" >
+            <Init />
+          </Route>
+        </Switch>
+      </div>
     </BrowserRouter>
   );
 }
