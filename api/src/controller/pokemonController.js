@@ -18,7 +18,7 @@ const getPokeapi = async () => { //Llamado doble a la api y a su suburl para tra
                 id: pokemon.data.id,
                 sprite: pokemon.data.sprites.other.home.front_default,
                 name: pokemon.data.name,
-                hp: pokemon.data.stats[0].base_stat,
+                life: pokemon.data.stats[0].base_stat,
                 attack: pokemon.data.stats[1].base_stat,
                 defense: pokemon.data.stats[2].base_stat,
                 speed: pokemon.data.stats[5].base_stat,

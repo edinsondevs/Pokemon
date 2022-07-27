@@ -1,26 +1,52 @@
 const { Router } = require('express');
+const { Op, QueryTypes  } = require('sequelize');
 const { getAllPoke } = require('../controller/pokemonController.js');
 
 const app = Router();
 
 // BUSCO TODOS LOS POKEMONES PARA MOSTRAR EN LA PRINCIPAL
 app.get('/', async (req, res) => {
-    //   res.send('Buscar los pokemons')
     const { name } = req.query
     const allPokemons = await getAllPoke();
-    // console.log(name)
     if (name) {
-        // try {
+        try {
             // if (name) {
-                const pokemonName = await allPokemons.filter(e => e.name == name);
-                pokemonName.length ?
-                    res.status(200).json(pokemonName) :
-                    res.status(404).send('Pokemon not found')
+            const pokemonName = await allPokemons.filter(e => e.name == name);
+            if (pokemonName.length === 0) pokemonName.push("NotFound");  // SI EL POKEMON NO EXISTE PUSHEO EL STRING NOTFOUND
+            pokemonName.length > 0 ?
+                res.status(200).json(pokemonName) :         // MANDO EL MENSAJE TODO EL RESULTADO ENCONTRADO
+                res.status(200).json(pokemonName)       // SI EL POKEMON NO EXISTE MANDO EL MENSAJE NOT FOUND
             // }
-        // } catch (error) {
-        //     console.log(error);
-        // }
-    } else{
+        } catch (error) {
+
+            const pokeDb = await Pokemon.findAll({
+                where: {
+                    name: {
+                        [Op.eq]: name
+                    }
+                },
+                include: Type
+            });
+
+            const objPokeDb = pokeDb.map(pokeDb => {
+                return {
+                    id: pokeDb.id,
+                    name: pokeDb.name,
+                    life: pokeDb.life,
+                    attack: pokeDb.attack,
+                    defense: pokeDb.defense,
+                    speed: pokeDb.speed,
+                    height: pokeDb.height,
+                    weight: pokeDb.weight,
+                    sprite: pokeDb.sprite,
+                    type: pokeDb.types?.map(e => e.name),
+                    createdInDb: pokeDb.createdInDb
+                };
+            })
+            res.status(200).json(objPokeDb)
+        }
+    }
+    else {
 
         try {
             return res.status(200).send(await getAllPoke());
