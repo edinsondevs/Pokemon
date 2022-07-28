@@ -6,7 +6,6 @@ import Paginate from './Paginate'
 import Cards from './Cards';
 import Loading from '../Loading/Gastly.gif'
 import NotFound from './NotFound'
-// import SearchBar from './SearchBar.js'
 
 function Home() {
   const dispatch = useDispatch();
@@ -25,43 +24,35 @@ function Home() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   }
-  // console.log(currentPoke)
   useEffect(() => {
     dispatch(getAllPokemons())
     dispatch(typePokemons())
   }, [dispatch])
 
-  // function handleClick(e) {
-  //     e.preventDefault()
-  //     console.log("cargue de nuevo los pokemons")
-  //     dispatch(getAllPokemons())
-  // }
+  function handleClick(e) {
+      e.preventDefault()
+      dispatch(getAllPokemons())
+  }
 
   const ordering = (e) => {
     dispatch(getOrdering(e))
-    // console.log(all)
   }
 
 
   const searchType = (e) => {
-    // console.log(e)
     dispatch(searchByType(e))
   }
 
   const searcrCreation = (e) => {
-    // console.log(e)
     dispatch(searchByCreation(e))
   }
 
   const handleInputName = (e) => {
     setName(e)
-    // console.log(e)
-    // console.log(name);
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(name)
     dispatch(searchByName(name.toLocaleLowerCase()))
     setName('')
   }
@@ -71,10 +62,12 @@ function Home() {
       <Paginate pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginate={paginate} />
       {/* //! ***********************  SECCION DE FILTROS     ***********************************************************/}
       <div className='filters'>
+        <input type='button' value="Alls Pokemons"  onClick={handleClick} className="btn-all-poke" /> 
         {/******************************** FILTRO POR TIPO **********************************/}
+
         <p>Filter by Type:</p>
         <select name='search' id='search' onChange={(e) => searchType(e.target.value)}>
-          <option value="All">All</option>
+          {/* <option value="All">All</option> */}
           {type ?
             type.map((e, i) => {
               return (
@@ -101,7 +94,7 @@ function Home() {
 
         {/* //! ***********************  SEARCH     ***********************************************************/}
         <input type='search' name='search' value={name} id='search-poke' placeholder='Search' onChange={(e) => handleInputName(e.target.value)} />
-        <input type='submit' name='submit' id='submit' onClick={handleSubmit}></input>
+        <input type='button' value="Search" name='submit' id='submit' onClick={handleSubmit} className='btn-all-poke'/>
       </div>
 
       {/* //! ***********************  SECCION DE CARDS     ***********************************************************/}
@@ -117,7 +110,7 @@ function Home() {
                 <Cards
                   key={id}
                   name={e.name}
-                  life={e.life}
+                  hp={e.hp}
                   attack={e.attack}
                   defense={e.defense}
                   speed={e.speed}
