@@ -56,10 +56,8 @@ export const searchByName = (payload) => {
 }
 
 export const createPokemons = (payload) => {
-    return async function () {
-        await axios.post('http://localhost:3001/pokemons/add', payload)
-        .then(response => {alert("Pokemon Created")})
-        .then(console.log("Pokemon Created"))
-        .catch(error => console.log(error))
+    console.log(payload)
+    return async function (dispatch) {
+        await axios.post('http://localhost:3001/pokemons', payload)
     }
 }
