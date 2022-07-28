@@ -32,7 +32,7 @@ app.get('/', async (req, res) => {
                 return {
                     id: pokeDb.id,
                     name: pokeDb.name,
-                    life: pokeDb.life,
+                    hp: pokeDb.hp,
                     attack: pokeDb.attack,
                     defense: pokeDb.defense,
                     speed: pokeDb.speed,
