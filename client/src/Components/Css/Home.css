@@ -2,10 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
-h1, p {
+h1,
+p {
     color: white
 }
 
@@ -22,27 +23,27 @@ h1, p {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: grey;
-    display:flex;
+    /* background-color: grey; */
+    display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.cmp-container-home{
+.cmp-container-home {
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     float: right;
     /* margin-top: 100px; */
     width: 90%;
     /* height: 100%; */
-    justify-content:center;
+    justify-content: center;
     color: #fff;
 }
 
 /************************************************************************************************/
 
 p {
-    padding: 10px;    
+    padding: 10px;
 }
 
 #wrapper {
@@ -68,7 +69,7 @@ p {
 }
 
 #content {
-    background: #000000;
+    /* background: #000000; */
     margin-left: 150px;
     height: 60vh
 }
@@ -76,7 +77,7 @@ p {
 #leftcolumn {
     width: 150px;
     float: left;
-    margin-left:-100%;
+    margin-left: -100%;
     height: 80vh;
 }
 
@@ -87,7 +88,7 @@ p {
 }
 
 /************************************************************************************************/
-/*          LOADING DE LA CARGA DE TARJETAS                                                     */  
+/*          LOADING DE LA CARGA DE TARJETAS                                                     */
 /************************************************************************************************/
 .loading {
     width: 500px;
@@ -96,39 +97,41 @@ p {
     align-self: center;
 }
 
-.cartas{padding-top: 50px; 
-max-width: 60vw;
-justify-content: center;  
-align-self: center;
-display: flex;
-flex-wrap: wrap;
-flex-direction: row;
-/* background-color: cornflowerblue; */
-gap: 4.5em;
+.cartas {
+    padding-top: 50px;
+    max-width: 60vw;
+    justify-content: center;
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    /* background-color: cornflowerblue; */
+    gap: 4.5em;
 }
 
 /************************************************************************************************/
-/*                                  FILTROS                                                     */  
+/*                                  FILTROS                                                     */
 /************************************************************************************************/
 
-.btn-all-poke{
-    background-color: transparent;    
+.btn-all-poke {
+    background-color: transparent;
     color: #fff;
     border: none;
     cursor: pointer;
     border-radius: 7px;
     padding: 0.5rem;
-    box-shadow:  3px 3px 6px 0px #ecb51ee4;
+    box-shadow: 3px 3px 6px 0px #ecb51ee4;
 }
 
-.btn-all-poke:active{
+.btn-all-poke:active {
     padding: 0.5rem;
-    box-shadow:  0px 0px 0px 0px ;
+    box-shadow: 0px 0px 0px 0px;
     color: #fff;
     border-radius: 7px;
     cursor: pointer;
 }
 
-.filters input, select{
+.filters input,
+select {
     border-radius: 7px;
 }

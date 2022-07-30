@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.cmp-container-detail {
+    /* border: 1px solid #fff; */
+    /* background-color: rgba(67, 201, 26, 0.222); */
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height:40em;
+    width:60em;
+    margin: auto;
+    /* background-image: url(https://media.istockphoto.com/photos/blue-neon-light-on-empty-brick-wall-with-copy-space-picture-id1260797589?b=1&k=6&m=1260797589&s=170667a&w=0&h=pwcZDJtaBC-2deGtmmyerhcMwQmXURTNDbtDC0x0FaY=); */
+    background-image: url(../Images/black_bk6.jpg);
+    background-size: cover;
+}
+
+.cmp-detail{
+    /* border: 1px solid #fff; */
+    /* background-color: rgba(231, 156, 213, 0.33); */
+    width:60em;
+    display: flex;
+    margin: auto;
+    justify-content: space-between
+}
+
+h2 {
+    color: #fff;
+}
+
+.cmp-detail-left{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+    overflow:hidden;
+}
+.cmp-detail-right{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    width:50%;
+}
+
+.cmp-detail_img{
+    width: auto;
+    height: auto;
+    transition:all .5s ease-in-out;
+}
+
+.cmp-detail_img:hover{
+transition:all .5s ease-in-out;
+-webkit-transform: rotateY(180deg);
+-webkit-transform-style: preserve-3d;
+transform: rotateY(180deg);
+transform-style: preserve-3d;
+}
+
+.range{
+    accent-color: deeppink;
+}
