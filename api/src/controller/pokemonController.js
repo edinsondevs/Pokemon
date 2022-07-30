@@ -24,7 +24,8 @@ const getPokeapi = async () => { //Llamado doble a la api y a su suburl para tra
                 speed: pokemon.data.stats[5].base_stat,
                 height: pokemon.data.height,
                 weight: pokemon.data.weight,
-                type: pokemon.data.types.map(e=> e.type.name)                
+                type: pokemon.data.types.map(e=> e.type.name),
+                createdInDb: false
             }
         }) 
     ) 

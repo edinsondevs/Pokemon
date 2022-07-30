@@ -60,10 +60,22 @@ app.get('/', async (req, res) => {
 // BUSCO LOS POKEMONES POR ID
 app.get('/:id', async (req, res) => {
     const { id } = req.params;
+    const createdInDb  = req.query.createdInDb
+    console.log(createdInDb)
     const allPokemons = await getAllPoke();
+    // console.log(allPokemons)
     try {
-        if (id) {
-            const pokemonId = await allPokemons.filter(e => e.id == id);
+        if (createdInDb ) {
+            console.log("entro porque es de db")
+            // const pokemonId = await allPokemons.filter(e => e.id == id);
+            const pokemonId = await allPokemons.filter(e => e.id == id).filter(e => e.createdInDb)
+            pokemonId.length ?
+                res.status(200).json(pokemonId) :
+                res.status(404).send('Pokemon not found')
+        } 
+        if(!createdInDb){
+            console.log("entro porque no es de db")
+            const pokemonId = await allPokemons.filter(e => e.id == id).filter(e => !e.createdInDb)
             pokemonId.length ?
                 res.status(200).json(pokemonId) :
                 res.status(404).send('Pokemon not found')
