@@ -13,9 +13,9 @@ function Init() {
                 <Nav />               {/*  COMPONENT NAV */}
                 <Switch >
                     <Route path="/home" component={Home} />
-                    <Route path="/pokemons" component={Cards} />
+                    <Route exact path="/pokemons" component={Cards} />
                     <Route path="/create" component={PokemonCreate} />
-                    <Route exact path="/pokemons/:id" component={DetailPokemon} />
+                    <Route path="/pokemons/:id" component={DetailPokemon} />
                 </Switch>
                 {/* <Footer /> */}
             </>

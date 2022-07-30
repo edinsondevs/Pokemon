@@ -12,6 +12,7 @@ function Home() {
   const allPokemons = useSelector((state) => state.allPokemons)
   const type = useSelector((state) => state.typePoke);
 
+
   //! DECLARACION DE LOS ESTADOS
   const [name, setName] = useState('')
   const [currentPage, setCurrentPage] = useState(1)           //  Estado de paginado
@@ -37,7 +38,6 @@ function Home() {
   const ordering = (e) => {
     dispatch(getOrdering(e))
   }
-
 
   const searchType = (e) => {
     dispatch(searchByType(e))
@@ -67,7 +67,6 @@ function Home() {
 
         <p>Filter by Type:</p>
         <select name='search' id='search' onChange={(e) => searchType(e.target.value)}>
-          {/* <option value="All">All</option> */}
           {type ?
             type.map((e, i) => {
               return (
@@ -104,19 +103,15 @@ function Home() {
           (allPokemons[0] === "NotFound" ?
             <NotFound />
             :
-
             currentPoke.map((e,id) => {
               return (
                 <Cards
                   key={id}
+                  id={e.id}
                   name={e.name}
-                  hp={e.hp}
-                  attack={e.attack}
-                  defense={e.defense}
-                  speed={e.speed}
-                  height={e.height}
-                  weight={e.weight}
+                  type={e.type}
                   img={e.sprite}
+                  createdInDb={e.createdInDb ? true : null}
                 />
               )
             })
