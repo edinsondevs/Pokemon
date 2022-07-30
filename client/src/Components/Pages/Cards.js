@@ -11,6 +11,7 @@ function Cards({ name, img, type, id, createdInDb }) {
     const dispatch = useDispatch()
 
     const handleDetail = (id, createdInDb) => {
+        console.log(createdInDb);
         if (createdInDb) {
             dispatch(searchById(id, createdInDb))
         } else {
