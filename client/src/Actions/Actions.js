@@ -43,14 +43,30 @@ export const getOrdering = (payload) => {
 }
 
 export const searchByName = (payload) => {
-
     return async function (dispatch) {
-
         let json = await axios.get('http://localhost:3001/pokemons?name=' + payload);
         let dataApi = json.data
         return dispatch({
             type: 'SEARCH_BY_NAME',
             payload: dataApi       //dataApi
+        })
+    }
+}
+
+export const searchById = (id, createdInDb) => {
+    return async function (dispatch) {
+        let URL = ''
+        if (id && createdInDb) {
+            URL = `http://localhost:3001/pokemons/${id}?createdInDb=true`
+        }
+        if (id && !createdInDb) {
+            URL = `http://localhost:3001/pokemons/${id}`
+        }
+        let pokemonDetail = await axios.get(URL)
+        let pokemonId = pokemonDetail.data
+        return dispatch({
+            type: 'SEARCH_BY_ID',
+            payload: pokemonId
         })
     }
 }
