@@ -2,6 +2,7 @@ const initialState = {
     typePoke: [],
     allPokemons: [],
     clonPokemons: [],
+    pokemonDetail:[]
 
 }
 export default function reducer(state = initialState, action) {
@@ -90,13 +91,19 @@ export default function reducer(state = initialState, action) {
                 allPokemons: action.payload
             })
 
-        //  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
-
+        case 'SEARCH_BY_ID':
+            return ({
+                ...state,
+                pokemonDetail:action.payload
+            })
+        //  ********************************************           CREACION DE POKEMON     ********************************************************************************/
+        
         case 'CREATE_POKEMON':
             return {
                 ...state,
             }
-
+            
+        //  ********************************************           CREACION DE POKEMON     ********************************************************************************/
 
         default:
             return state
