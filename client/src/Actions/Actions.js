@@ -54,12 +54,14 @@ export const searchByName = (payload) => {
 }
 
 export const searchById = (id, createdInDb) => {
+    console.log(createdInDb)
     return async function (dispatch) {
         let URL = ''
         if (id && createdInDb) {
             URL = `http://localhost:3001/pokemons/${id}?createdInDb=true`
-        }
-        if (id && !createdInDb) {
+        } else
+        // if (id && !createdInDb) 
+        {
             URL = `http://localhost:3001/pokemons/${id}`
         }
         let pokemonDetail = await axios.get(URL)

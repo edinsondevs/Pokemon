@@ -1,0 +1,115 @@
+{
+    "sprite":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/11.svg",
+    "name":"Poke 22",
+    "weight":33,
+    "height":44,
+    "hp":21,
+    "attack":54,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+}
+
+{
+    "sprite":"https://www.abyssalruins.com/wp-content/uploads/2018/07/Mega_Gengar-shuffle.png",
+    "name":"PokePrueba",
+    "weight":61,
+    "height":20,
+    "hp":21,
+    "attack":54,
+    "defense":20,
+    "speed":61,
+    "type":"psychic"
+}
+
+{
+    "sprite":"https://whackahack.com/foro/attachments/pm0006_00_00_00_l-png.7491/",
+    "name":"Poke 22",
+    "weight":33,
+    "height":20,
+    "hp":61,
+    "attack":54,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+}
+
+{
+    "sprite":"https://pokemonaccounts.com/images/pogo/pokemon_icons/pokemon_icon_248_00.png",
+    "name":"02 PokePrueba",
+    "weight":20,
+    "height":61,
+    "hp":21,
+    "attack":54,
+    "defense":87,
+    "speed":20,
+    "type":"psychic"
+}
+
+
+{
+    "sprite":"https://areajugones.sport.es/wp-content/uploads/2018/11/Gyarados.png",
+    "name":"PokePrueba 12",
+    "weight":61,
+    "height":44,
+    "hp":21,
+    "attack":61,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+},
+{
+    "sprite":"https://dlprivateserver.com/wp-content/uploads/2020/07/Pokemon-GO-10-monstruos-geniales-que-deberian-ser-mucho-mas.png",
+    "name":"PokePrueba 5",
+    "weight":33,
+    "height":61,
+    "hp":21,
+    "attack":54,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+},
+{
+    "sprite":"https://images.gameinfo.io/pokemon/256/p144f331.png",
+    "name":"PokePrueba 7",
+    "weight":61,
+    "height":44,
+    "hp":21,
+    "attack":54,
+    "defense":61,
+    "speed":20,
+    "type":"psychic"
+},
+{
+    "sprite":"https://pbs.twimg.com/media/Ez1Pvx7XMA0Qs43.png",
+    "name":"3 PokePrueba",
+    "weight":33,
+    "height":20,
+    "hp":21,
+    "attack":54,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+},
+{
+    "sprite":"https://assets.pokemon.com/assets/cms2/img/pokedex/full/553.png",
+    "name":"6 PokePrueba",
+    "weight":61,
+    "height":20,
+    "hp":20,
+    "attack":61,
+    "defense":87,
+    "speed":23,
+    "type":"psychic"
+},
+{
+    "sprite":"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/11.svg",
+    "name":"9 PokePrueba",
+    "weight":20,
+    "height":44,
+    "hp":61,
+    "attack":54,
+    "defense":20,
+    "speed":23,
+    "type":"psychic"
+}
