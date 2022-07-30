@@ -15,7 +15,7 @@ const addPokemons = require('../controller/addPokemon.js');
 // Ejemplo: router.use('/auth', authRouter);
 app.use('/types', typeRoutes)
 app.use('/pokemons', allPokemons)
-app.use('/pokemons/add', addPokemons);
+app.use('/pokemons', addPokemons);
 
 
 //*************************************************************************************************************************************************************/
