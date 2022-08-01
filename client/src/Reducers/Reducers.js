@@ -67,7 +67,8 @@ export default function reducer(state = initialState, action) {
                     if (nameA < nameB) return 1;
                     return 0;
                 })
-            } else if (orderby === 'major') {                 //                    ORDENAMINETO POR ATTACK DE MAYOR A MENOR
+            }
+             else if (orderby === 'major') {                 //                    ORDENAMINETO POR ATTACK DE MAYOR A MENOR
                 orderPokemons.sort((a, b) => {
                     if (a.attack > b.attack) return -1;
                     if (a.attack < b.attack) return 1;
@@ -90,7 +91,8 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 allPokemons: action.payload
             })
-
+            
+        //  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
         case 'SEARCH_BY_ID':
             return ({
                 ...state,
