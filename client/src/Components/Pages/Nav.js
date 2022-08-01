@@ -3,25 +3,19 @@ import { Link } from 'react-router-dom';
 
 import '../Css/Nav.css';
 
-// import Pikachu from '../Images/pikachu-header-right.png'
 import Pikachu from '../Images/top-pikachu-2.gif'
-import Logo from '../Images/png-transparent-text-logo.png'
-// import Pokeball from '../Images/pokeball-left.png'
 import Pokeball from '../Images/pokemon-pokeball.gif'
 
 function Nav() {
     return (
-
         <div id="wrapper">
             <div id="header">
-                {/* <p>This is the Header</p> */}
                 <div className="cmp-nav">
                     <div className="shrink0">
                         <img src={Pokeball} alt="" height="100"  />
                     </div>
                     <div className="grow1">
-                    <h1 class="title" data-text="Pokemon">Pokemon</h1>
-                        {/* <img src={Logo} alt="" className="logo" /> */}
+                        <img src={"https://tec.com.pe/wp-content/uploads/2021/02/ddew4m7-c69a2c41-518f-48ca-ba35-8ab1895464e0.png"} className="pokemon-logo" alt="" srcset="" />
                     </div>
                     <div className="shrink0">
                         <img src={Pikachu} alt="" height="150" weight="200"  />
@@ -44,7 +38,6 @@ function Nav() {
                 </nav>
             </div>
         </div>
-
     );
 }
 

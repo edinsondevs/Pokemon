@@ -11,12 +11,14 @@ function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons)
   const type = useSelector((state) => state.typePoke);
-
+  // console.log(allPokemons)
+  // console.log(type)
 
   //! DECLARACION DE LOS ESTADOS
   const [name, setName] = useState('')
   const [currentPage, setCurrentPage] = useState(1)           //  Estado de paginado
   const [pokemonsPerPage, setPokemonsPerPage] = useState(12)  //  cantidad de pokemones por pagina
+  const [refresh, setRefresh] = useState(false) // 
   const indexLastPage = currentPage * pokemonsPerPage    // Index del ultimo pokemon, multiplico la pag actual por la cantida de poke por paginas
 
   //! DECLARACION DE LOS CONSTANTES
@@ -37,6 +39,7 @@ function Home() {
 
   const ordering = (e) => {
     dispatch(getOrdering(e))
+    setRefresh(!refresh)
   }
 
   const searchType = (e) => {
@@ -59,22 +62,20 @@ function Home() {
 
   return (
     <div className='cmp-container-home'>
-      <Paginate pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginate={paginate} />
       {/* //! ***********************  SECCION DE FILTROS     ***********************************************************/}
       <div className='filters'>
         <input type='button' value="Alls Pokemons"  onClick={handleClick} className="btn-all-poke" /> 
         {/******************************** FILTRO POR TIPO **********************************/}
-
         <p>Filter by Type:</p>
         <select name='search' id='search' onChange={(e) => searchType(e.target.value)}>
           {type ?
             type.map((e, i) => {
               return (
                 <option value={e} key={i}> {e} </option>
-              )
-            })
-            : null
-          }
+                )
+              })
+              : null
+            }
         </select>
         {/******************************** FILTRO POR CREACION **********************************/}
         <p>Filter by:</p>
@@ -95,6 +96,7 @@ function Home() {
         <input type='search' name='search' value={name} id='search-poke' placeholder='Search' onChange={(e) => handleInputName(e.target.value)} />
         <input type='button' value="Search" name='submit' id='submit' onClick={handleSubmit} className='btn-all-poke'/>
       </div>
+            <Paginate pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginate={paginate} />
 
       {/* //! ***********************  SECCION DE CARDS     ***********************************************************/}
       <div className='cartas'>

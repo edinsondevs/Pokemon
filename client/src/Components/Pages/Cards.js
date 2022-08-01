@@ -3,20 +3,18 @@ import { useDispatch } from 'react-redux';
 import '../Css/Cards.css'
 import { searchById } from '../../Actions/Actions'
 import { Link } from 'react-router-dom';
-// import  Lupa  from '../Images/more.png';
 import More from '../Icons/Lupa';
 
 function Cards({ name, img, type, id, createdInDb }) {
-    // function Cards(props) {
     const dispatch = useDispatch()
 
-    const handleDetail = (id, createdInDb) => {
-        console.log(createdInDb);
+    const handleDetail = (id, createdInDb) => {        
+        // console.log(createdInDb);
         if (createdInDb) {
             dispatch(searchById(id, createdInDb))
         } else {
             createdInDb = false
-            dispatch(searchById(id, createdInDb))
+            dispatch(searchById(id))
         }
 
     }
