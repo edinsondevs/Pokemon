@@ -54,14 +54,17 @@ export const searchByName = (payload) => {
 }
 
 export const searchById = (id, createdInDb) => {
-    console.log(createdInDb)
+    console.log("Recibo en Actions id: " + id + ' y creacion en db: ' + createdInDb);
     return async function (dispatch) {
         let URL = ''
-        if (id && createdInDb) {
+        if (id && createdInDb) {            
+            console.log("entre porque es true createdInDb")
             URL = `http://localhost:3001/pokemons/${id}?createdInDb=true`
-        } else
-        // if (id && !createdInDb) 
+        } 
+        // else
+        if (id && !createdInDb) 
         {
+            console.log("entre porque no es true createdInDb")
             URL = `http://localhost:3001/pokemons/${id}`
         }
         let pokemonDetail = await axios.get(URL)

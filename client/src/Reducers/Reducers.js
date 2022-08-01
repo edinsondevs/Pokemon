@@ -83,7 +83,7 @@ export default function reducer(state = initialState, action) {
             }
             return {
                 ...state,
-                clonPokemons: orderPokemons
+                allPokemons: orderPokemons
             }
         //  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
         case 'SEARCH_BY_NAME':
@@ -94,6 +94,7 @@ export default function reducer(state = initialState, action) {
             
         //  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
         case 'SEARCH_BY_ID':
+            console.log(action.payload);
             return ({
                 ...state,
                 pokemonDetail:action.payload
