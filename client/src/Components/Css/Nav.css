@@ -9,14 +9,14 @@
     display: flex;
     /* justify-content: space-between; */
     justify-content: space-evenly;
+    /* filter: drop-shadow(7px 5px 5px #ecb51ee4  );  */
 }
 
-.logo {
-    background-image: url(../Images/png-transparent-text-logo.png);
-    width: 210px;
-    height: 100px;
+.pokemon-logo{
+    width: 550px;
+    height: 150px;    
+    filter: drop-shadow(7px 5px 5px #ecb51ee4); 
 }
-
 .grow1 {
     flex-grow: 1;
     text-align: center;
@@ -58,7 +58,6 @@
     display: grid;
     grid:
     "sidebar body" 7fr / 1fr 8fr;
-    /* gap: 8px; */
     justify-content: center;
     text-align: center;
     color: #fff;
@@ -66,39 +65,34 @@
 
 .sidebar {
     grid-area: sidebar;
-    /* background-color: grey; */
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
 .body {
-    /* height: 100vh; */
     grid-area: body;
-    /* background-color: thistle; */
 }
 
-
-
 #leftcolumn {
-    width: 250px;
+    width: 12em;
     float: left;
     /* margin-left: -98%; */
-    /* height: 80vh; */
-    margin-top: 15em;
+    margin-top: 8em;
+    /* height: 5vh; */
     text-decoration: none;
     
 }
 
-#wrapper {
+/* #wrapper {
     width: 100vw;
     margin: 0 auto;
     color: #fff;
-}
+} */
 
 #header {
     float: left;
-    height: 75px;
+    height: auto;
     width: 100%;
 }
 
@@ -117,7 +111,7 @@
     margin-left: 300px;
     margin-top: -20px;
     -webkit-text-stroke: 1px #ecb51ee4;
-    -webkit-filter: drop-shadow(2px 2px 20px #ec731e);
+    /* -webkit-filter: drop-shadow(2px 2px 20px #ec731e); */
     z-index: 20;
 }
 

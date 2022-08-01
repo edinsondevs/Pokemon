@@ -5,20 +5,21 @@
 }
 
 .cmp-container-detail {
-    position:initial;
+    /* position:initial; */
     display: flex;
-    position:initial;
-    justify-content:center;
-    align-items:center;
-    height:40em;
-    width:90em;
-    margin: auto;
+    justify-content: center;
+    align-items: center;
+    /* height:40em; */
+    width: 80em;
+    margin-top: -80px;
+    /* margin: auto; */
     background-image: url(../Images/black_bk6.jpg);
     background-size: cover;
 }
 
-.cmp-detail{
-    width:70em;
+.cmp-detail {
+    width: 70em;
+    height: 35em;
     display: flex;
     margin: auto;
     justify-content: space-between
@@ -28,36 +29,58 @@ h2 {
     color: #fff;
 }
 
-.cmp-detail-left{
+.cmp-detail-left {
     display: flex;
-    justify-content:center;
-    align-items:center;
-    width:50%;
-    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+    width: 50em;
+    overflow: hidden;
 }
-.cmp-detail-right{
+
+.cmp-detail-right {
     display: flex;
     flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    width:50%;
+    justify-content: center;
+    align-items: center;
+    width: 50em;
 }
 
-.cmp-detail_img{
-    width: auto;
-    height: auto;
-    transition:all .5s ease-in-out;
-    filter: drop-shadow(7px 5px 5px #ecb51ee4  ); 
+.cmp-detail_img {
+    max-width: 400px;
+    max-height: 400px;
+    transition: all .5s ease-in-out;
+    filter: drop-shadow(7px 5px 5px #ecb51ee4);
 }
 
-.cmp-detail_img:hover{
-transition:all .5s ease-in-out;
--webkit-transform: rotateY(180deg);
--webkit-transform-style: preserve-3d;
-transform: rotateY(180deg);
-transform-style: preserve-3d;
+.cmp-columns {
+    display: grid; 
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    
+    grid-template-areas: 
+     'label0 label1';
+    
+    gap: 100px;
+    height: 100%;
 }
 
-.range{
+#left {
+    grid-area: label0;
+    
+ }
+ #right {
+    grid-area: label1;
+ } 
+
+
+.cmp-detail_img:hover {
+    transition: all .5s ease-in-out;
+    -webkit-transform: rotateY(180deg);
+    -webkit-transform-style: preserve-3d;
+    transform: rotateY(180deg);
+    transform-style: preserve-3d;
+}
+
+.range {
     accent-color: deeppink;
 }
