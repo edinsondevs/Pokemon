@@ -3,21 +3,21 @@ import { searchById } from "../../Actions/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import Loading from "../Loading/Gastly.gif";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 function DetailPokemon(props) {
     const dispatch = useDispatch();
-    let history = useHistory();
+    // let history = useHistory();
 
     useEffect(() => {
         dispatch(searchById(props.match.params.id));
     }, [dispatch]);
 
-    function handleClick(props) {
-        console.log(props)
-        history.push("/home");
-    }
+    // function handleClick(props) {
+    //     console.log(props)
+    //     history.push("/home");
+    // }
     const detail = useSelector((state) => state.pokemonDetail);
 
     return (

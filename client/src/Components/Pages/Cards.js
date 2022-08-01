@@ -8,12 +8,16 @@ import More from '../Icons/Lupa';
 function Cards({ name, img, type, id, createdInDb }) {
     const dispatch = useDispatch()
 
-    const handleDetail = (id, createdInDb) => {        
-        // console.log(createdInDb);
-        if (createdInDb) {
+    const handleDetail = (id, createdInDb) => {
+        // console.log("id: " + id + ' db: ' + createdInDb);
+        if (createdInDb === true) {
+            console.log(`envio el dispatch como ${createdInDb} y el id: ${id}`)
             dispatch(searchById(id, createdInDb))
         } else {
+            console.log(`envio el dispatch como ${createdInDb} y el id: ${id}`)
             createdInDb = false
+            console.log("Asignando false a bd: "+createdInDb)
+            // dispatch(searchById(id, createdInDb))
             dispatch(searchById(id))
         }
 
@@ -27,7 +31,7 @@ function Cards({ name, img, type, id, createdInDb }) {
                     <img src={img} alt="Not Found" className="cmp-card_img" />
                     <p>Type: {type.join(', ')}</p>
                     <Link to={`/pokemons/${id}`} >
-                    <More />
+                        <More />
                     </Link>
                 </div>
                 // ))

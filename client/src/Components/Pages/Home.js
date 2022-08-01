@@ -38,8 +38,8 @@ function Home() {
   }
 
   const ordering = (e) => {
-    dispatch(getOrdering(e))
     setRefresh(!refresh)
+    dispatch(getOrdering(e))
   }
 
   const searchType = (e) => {
