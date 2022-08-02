@@ -54,7 +54,6 @@ export const searchByName = (payload) => {
 }
 
 export const searchById = (id) => {
-    console.log("Recibo en Actions id: " + id );
     return async function (dispatch) {
         let pokemonDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
         let pokemonId = pokemonDetail.data
