@@ -11,8 +11,6 @@ function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.allPokemons)
   const type = useSelector((state) => state.typePoke);
-  // console.log(allPokemons)
-  // console.log(type)
 
   //! DECLARACION DE LOS ESTADOS
   const [name, setName] = useState('')

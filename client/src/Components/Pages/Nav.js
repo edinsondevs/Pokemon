@@ -15,7 +15,7 @@ function Nav() {
                         <img src={Pokeball} alt="" height="100"  />
                     </div>
                     <div className="grow1">
-                        <img src={"https://tec.com.pe/wp-content/uploads/2021/02/ddew4m7-c69a2c41-518f-48ca-ba35-8ab1895464e0.png"} className="pokemon-logo" alt="" srcset="" />
+                        <img src={"https://tec.com.pe/wp-content/uploads/2021/02/ddew4m7-c69a2c41-518f-48ca-ba35-8ab1895464e0.png"} className="pokemon-logo" alt="" />
                     </div>
                     <div className="shrink0">
                         <img src={Pikachu} alt="" height="150" weight="200"  />

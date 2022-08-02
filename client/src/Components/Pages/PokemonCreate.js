@@ -13,6 +13,9 @@ function PokemonCreate() {
 
     const type = useSelector((state) => state.typePoke)
 
+    const [num, setNum] = useState('');
+
+    const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         sprite: "",
         name: "",
@@ -29,31 +32,73 @@ function PokemonCreate() {
         console.log(e.name)
         dispatch(createPokemons(input))
         alert("Pokemon Creado")
-        // setInput({
-        //     sprite: "",
-        //     name: "",
-        //     weight: "",
-        //     height: "",
-        //     hp: "",
-        //     attack: "",
-        //     defense: "",
-        //     speed: "",
-        //     type: [],
-        // });
+    }
+
+    //****************      VALIDACION     *****/
+    function validateForm(input) {
+        let err = {}
+        console.log(input.name.length)
+        if (/[^ A-Za-z]/.test(input.name)) {  // NO PERMITE NUMEROS NI CARACTERES ESPECIALES      
+            err = { name: "Special characters are not allowed" }
+        } else if (input.name.length < 5) {
+            err = { name: "You must enter at least 5 characters" }
+        }
+        else if (input.weight.length > 2) {
+            err = { weight: "Max Score 99" }
+        }
+        else if (input.height.length > 2) {
+            err = { height: "Max Score 99" }
+        }
+        else if (input.hp.length > 2) {
+            err = { hp: "Max Score 99" }
+        }
+        else if (input.attack.length > 2) {
+            err = { attack: "Max Score 99" }
+        }
+        else if (input.defense.length > 2) {
+            err = { defense: "Max Score 99" }
+        }
+        else if (input.speed.length > 2) {
+            err = { speed: "Max Score 99" }
+        }
+        // else if (/[https?:\/{2}/w{3}/]/.test(input.image)) {
+        //   err = { image: "Debe iniciar con https:// o http://" }
+        // }
+
+        else {
+            err = {
+                name: "",
+                weight: "",
+                height: "",
+                hp: "",
+                attack: "",
+                "defense": "",
+                "speed": "",
+            }
+        }
+        return err
     }
 
 
     const handleChange = (e) => {
+        console.log(e.target.value);
+        const limit = 4;
+        setNum(e.target.value.slice(0, limit));
+        console.log(num)
+
         setInput({
             ...input,
             [e.target.name]: e.target.value,
         });
-        console.log(input)
+        setErrors(validateForm({
+            ...input,
+            [e.target.name]: e.target.value,
+        }))
     };
 
     const handleSelect = (e) => {
         if (input.type.includes(e.target.value)) {
-            return "Diet Type exists";
+            return "Pokemon Type exists";
         } else {
             setInput({
                 ...input,
@@ -66,37 +111,6 @@ function PokemonCreate() {
 
     //****************      RENDERIZACION DEL COMPONENTE     *****/    
     return (
-        // <div className="container-form">
-        //     <form action="" onSubmit={handleSubmit} className="my-form" >
-        //         <div className="grid grid-2">
-        //             <input type="text" name="name" id="" value={input.name} onChange={handleChange} />
-        //             <input type="text" name="sprite" id="" value={input.sprite} onChange={handleChange} />
-        //         </div>
-        //         <div className="grid grid-2">
-        //             <input type="number" placeholder="weight" name="weight" id="" value={input.weight} onChange={handleChange} min={1} max={99} />
-        //             <input type="number" placeholder="height" name="height" id="" value={input.height} onChange={handleChange} min={1} max={99} />
-        //             <input type="number" placeholder="hp" name="hp" id="" value={input.hp} onChange={handleChange} min={1} max={99} />
-        //         </div>
-        //         <div className="grid grid-2">
-        //             <input type="number" placeholder="attack" name="attack" id="" value={input.attack} onChange={handleChange} min={1} max={99} />
-        //             <input type="number" placeholder="defense" name="defense" id="" value={input.defense} onChange={handleChange} min={1} max={99} />
-        //             <input type="number" placeholder='speed' name="speed" id="" value={input.speed} onChange={handleChange} min={1} max={99} />
-        //         </div>
-        //         {/* <input type="number" name="type" id="" onChange={handleSelect}/> */}
-        //         <div className="grid grid-2">
-        //             <select multiple="multiple" name='type' onChange={handleSelect} >
-        //                 {
-        //                     type.map((e, i) => (
-        //                         <option key={i} > {e} </option>
-        //                     ))
-        //                 }
-        //             </select>
-        //         </div>
-        //         <button className="btn-grid" type="submit" > enviar</button>
-        //     </form>
-        // </div>
-
-
         <div className="container-form">
             <form className="my-form" onSubmit={(e) => handleSubmit(e)}>
                 <div>
@@ -104,25 +118,110 @@ function PokemonCreate() {
                     <ul>
                         <li>
                             <div className="grid grid-2">
-                                <input type="text" placeholder="Name" name="name"
-                                    value={input.name} onChange={handleChange}
+                                <input
+                                    className='required-msg'
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={input.name}
+                                    onChange={handleChange}
+                                    placeholder="Name"
                                 />
-                                <input type="text" placeholder="Image URL" name="sprite" value={input.sprite} onChange={handleChange} />
+                                {!errors.name ? null : <span className="cmp-form-valid_name">{errors.name}</span>}
+                                <input
+                                    className='required-msg'
+                                    type="text"
+                                    id="text"
+                                    name="sprite"
+                                    value={input.sprite}
+                                    onChange={handleChange}
+                                    placeholder="Image URL"
+                                />
                             </div>
                         </li>
                         <li>
                             <div className="grid grid-2">
-                                <input type="number" placeholder="Height" name="height" value={input.height} onChange={handleChange} min={1} max={99} />
-                                <input type="number" placeholder="Weight" name="weight" value={input.weight} onChange={handleChange} min={1} max={99} />
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name="height"
+                                    value={input.height}
+                                    onChange={handleChange}
+                                    min={1}
+                                    max={99}
+                                    placeholder="Height"
+                                />
+                                {!errors.height ? null : <span className="cmp-form-valid_number_left">{errors.height}</span>}
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name="weight"
+                                    value={input.weight}
+                                    onChange={handleChange}
+                                    // min={1}
+                                    // max={99}
+                                    maxLength={5}
+                                    placeholder="Weight"
+                                />
+                                {!errors.weight ? null : <span className="cmp-form-valid_number_right">{errors.weight}</span>}
                             </div>
                         </li>
                         <li>
                             <div className="grid grid-2">
-                                <input type="number" placeholder="Hp" name="hp" value={input.hp} onChange={handleChange} min={1} max={99} />
-                                <input type="number" placeholder="Attack" name='attack' value={input.attack} onChange={handleChange} min={1} max={99} />
-                                <input type="number" placeholder="Defense" name="defense" value={input.defense} onChange={handleChange} min={1} max={99} />
-                                <input type="number" placeholder="Speed" name='speed' value={input.speed} onChange={handleChange} min={1} max={99} />
-
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name="hp"
+                                    value={input.hp}
+                                    onChange={handleChange}
+                                    min={1}
+                                    max={99}
+                                    placeholder="Hp"
+                                />
+                                {!errors.hp ? null : <span className="cmp-form-valid_number_left">{errors.hp}</span>}
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name='attack'
+                                    value={input.attack}
+                                    onChange={handleChange}
+                                    min={1}
+                                    max={99}
+                                    placeholder="Attack"
+                                />
+                                {!errors.attack ? null : <span className="cmp-form-valid_number_right">{errors.attack}</span>}
+                            </div>
+                        </li>
+                        <li>
+                            <div className="grid grid-2">
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name="defense"
+                                    value={input.defense}
+                                    onChange={handleChange}
+                                    min={1}
+                                    max={99}
+                                    placeholder="Defense"
+                                />
+                                {!errors.defense ? null : <span className="cmp-form-valid_number_left">{errors.defense}</span>}
+                                <input
+                                    className='required-msg'
+                                    type="number"
+                                    id="number"
+                                    name='speed'
+                                    value={input.speed}
+                                    onChange={handleChange}
+                                    min={1}
+                                    max={99}
+                                    placeholder="Speed"
+                                />
+                                {!errors.speed ? null : <span className="cmp-form-valid_number_right">{errors.speed}</span>}
                             </div>
                         </li>
                         <li>
