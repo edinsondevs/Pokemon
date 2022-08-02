@@ -10,13 +10,11 @@ app.get('/', async (req, res) => {
     const allPokemons = await getAllPoke();
     if (name) {
         try {
-            // if (name) {
             const pokemonName = await allPokemons.filter(e => e.name == name);
             if (pokemonName.length === 0) pokemonName.push("NotFound");  // SI EL POKEMON NO EXISTE PUSHEO EL STRING NOTFOUND
             pokemonName.length > 0 ?
                 res.status(200).json(pokemonName) :         // MANDO EL MENSAJE TODO EL RESULTADO ENCONTRADO
                 res.status(200).json(pokemonName)       // SI EL POKEMON NO EXISTE MANDO EL MENSAJE NOT FOUND
-            // }
         } catch (error) {
 
             const pokeDb = await Pokemon.findAll({
@@ -60,26 +58,12 @@ app.get('/', async (req, res) => {
 // BUSCO LOS POKEMONES POR ID
 app.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const createdInDb  = req.query.createdInDb
-    console.log(createdInDb)
     const allPokemons = await getAllPoke();
-    // console.log(allPokemons)
     try {
-        if (createdInDb ) {
-            console.log("entro porque es de db")
-            // const pokemonId = await allPokemons.filter(e => e.id == id);
-            const pokemonId = await allPokemons.filter(e => e.id == id).filter(e => e.createdInDb)
+            const pokemonId = await allPokemons.filter(e => e.id == id)
             pokemonId.length ?
                 res.status(200).json(pokemonId) :
                 res.status(404).send('Pokemon not found')
-        } 
-        if(!createdInDb){
-            console.log("entro porque no es de db")
-            const pokemonId = await allPokemons.filter(e => e.id == id).filter(e => !e.createdInDb)
-            pokemonId.length ?
-                res.status(200).json(pokemonId) :
-                res.status(404).send('Pokemon not found')
-        }
     } catch (error) {
         console.log(error);
     }

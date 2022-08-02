@@ -18,7 +18,6 @@ app.get('/', async (req, res) => {
             attributes: ["name"]
         })
         const allTypesPoke = allTypes.map(e => e.name)
-        // console.log(allTypesPoke)
         return res.status(200).send(allTypesPoke)
     }catch(error){
         return res.status(400).send('No se encontraron tipos')
