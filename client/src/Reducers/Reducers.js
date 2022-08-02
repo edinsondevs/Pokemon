@@ -94,7 +94,6 @@ export default function reducer(state = initialState, action) {
             
         //  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
         case 'SEARCH_BY_ID':
-            console.log(action.payload);
             return ({
                 ...state,
                 pokemonDetail:action.payload
