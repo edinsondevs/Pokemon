@@ -41,20 +41,19 @@ function DetailPokemon(props) {
                         <div className="cmp-columns">
                             <div id="left">
                                 <p>HP:</p>
-                                <input type="range" className={"range"} value={detail[0].hp} />
+                                <input type="range" className={"range"} value={detail[0].hp} /> <span className="cmp-number-range" > {detail[0].hp} </span>
                                 <p>Attack: </p>
-                                <input type="range" className={"range"} value={detail[0].attack} />
+                                <input type="range" className={"range"} value={detail[0].attack} /><span className="cmp-number-range" > {detail[0].attack} </span>
                                 <p>Defense: </p>
-                                <input type="range" className={"range"} value={detail[0].defense} />
+                                <input type="range" className={"range"} value={detail[0].defense} /> <span className="cmp-number-range" >{detail[0].defense} </span>
                             </div>
                             <div id="right">
                                 <p>Speed:</p>
-                                <input type="range" className={"range"} value={detail[0].speed} />
+                                <input type="range" className={"range"} value={detail[0].speed} /> <span className="cmp-number-range" >{detail[0].speed} </span>
                                 <p>Height:</p>
-                                <input type="range" className={"range"} value={detail[0].height} />
+                                <input type="range" className={"range"} value={detail[0].height} /> <span className="cmp-number-range" >{detail[0].height} </span>
                                 <p>Weight:</p>
-                                <input type="range" className={"range"} value={detail[0].weight} />
-                                {detail[0].createdInDb}
+                                <input type="range" className={"range"} value={detail[0].weight} /> <span className="cmp-number-range" >{detail[0].weight}  </span>
                             </div>
                         </div>
                     </div>

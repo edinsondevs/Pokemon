@@ -2,6 +2,7 @@ import '../Css/PokemonCreate.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { typePokemons, createPokemons } from '../../Actions/Actions'
 import { useEffect, useState } from 'react'
+import { validateInputs } from '../Functions/ValidationsForm.js'
 
 
 function PokemonCreate() {
@@ -14,6 +15,7 @@ function PokemonCreate() {
     const type = useSelector((state) => state.typePoke)
 
     const [num, setNum] = useState('');
+    // const [disabled, setDisabled] = useState('')
 
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
@@ -23,15 +25,26 @@ function PokemonCreate() {
         height: "",
         hp: "",
         attack: "",
-        "defense": "",
-        "speed": "",
+        defense: "",
+        speed: "",
         type: [],
     });
 
+
+
     const handleSubmit = (e) => {
         console.log(e.name)
-        dispatch(createPokemons(input))
-        alert("Pokemon Creado")
+        const validate = validateInputs(input.name, input.weight, input.height, input.hp, input.attack, input.defense, input.speed, input.type)
+
+        // console.log(input)
+        if (validate) {
+            // alert(input)
+            dispatch(createPokemons(input))
+            alert("Pokemon Creado")
+        } else {
+            alert("Faltan Datos")
+        }
+
     }
 
     //****************      VALIDACION     *****/
@@ -79,16 +92,24 @@ function PokemonCreate() {
         return err
     }
 
-
-    const handleChange = (e) => {
-        console.log(e.target.value);
-        const limit = 4;
-        setNum(e.target.value.slice(0, limit));
-        console.log(num)
-
+    const handleNameChange = (e) => {
         setInput({
             ...input,
             [e.target.name]: e.target.value,
+        });
+        setErrors(validateForm({
+            ...input,
+            [e.target.name]: e.target.value,
+        }))
+    }
+    const handleChange = (e) => {
+        console.log(e.target.value);
+        // setNum(e.target.value.slice(0, limit));
+
+        const limit = 2;
+        setInput({
+            ...input,
+            [e.target.name]: e.target.value.slice(0, limit),
         });
         setErrors(validateForm({
             ...input,
@@ -124,7 +145,7 @@ function PokemonCreate() {
                                     id="name"
                                     name="name"
                                     value={input.name}
-                                    onChange={handleChange}
+                                    onChange={handleNameChange}
                                     placeholder="Name"
                                 />
                                 {!errors.name ? null : <span className="cmp-form-valid_name">{errors.name}</span>}
@@ -134,7 +155,7 @@ function PokemonCreate() {
                                     id="text"
                                     name="sprite"
                                     value={input.sprite}
-                                    onChange={handleChange}
+                                    onChange={handleNameChange}
                                     placeholder="Image URL"
                                 />
                             </div>
@@ -237,8 +258,8 @@ function PokemonCreate() {
                         <li>
                             <div className="grid grid-3">
                                 <div className="required-msg">REQUIRED FIELDS</div>
-                                <button className="btn-grid" type="submit" >
-                                    <span className="front">Create</span>
+                                <button className="btn-grid" type="submit"  >
+                                    <span className="front" >Create</span>
                                 </button>
                             </div>
                         </li>
