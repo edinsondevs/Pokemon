@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { typePokemons, createPokemons } from '../../Actions/Actions'
 import { useEffect, useState } from 'react'
 import { validateInputs } from '../Functions/ValidationsForm.js'
+import { useHistory } from "react-router-dom";
+
 
 
 function PokemonCreate() {
-
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(typePokemons())
@@ -29,28 +30,25 @@ function PokemonCreate() {
         speed: "",
         type: [],
     });
-
-
+    
+    const history = useHistory();
 
     const handleSubmit = (e) => {
-        console.log(e.name)
         const validate = validateInputs(input.name, input.weight, input.height, input.hp, input.attack, input.defense, input.speed, input.type)
-
-        // console.log(input)
+        
         if (validate) {
             // alert(input)
             dispatch(createPokemons(input))
             alert("Pokemon Creado")
+            history.push("/home");
         } else {
             alert("Faltan Datos")
         }
-
     }
 
     //****************      VALIDACION     *****/
     function validateForm(input) {
         let err = {}
-        console.log(input.name.length)
         if (/[^ A-Za-z]/.test(input.name)) {  // NO PERMITE NUMEROS NI CARACTERES ESPECIALES      
             err = { name: "Special characters are not allowed" }
         } else if (input.name.length < 5) {
@@ -74,9 +72,6 @@ function PokemonCreate() {
         else if (input.speed.length > 2) {
             err = { speed: "Max Score 99" }
         }
-        // else if (/[https?:\/{2}/w{3}/]/.test(input.image)) {
-        //   err = { image: "Debe iniciar con https:// o http://" }
-        // }
 
         else {
             err = {
@@ -103,9 +98,6 @@ function PokemonCreate() {
         }))
     }
     const handleChange = (e) => {
-        console.log(e.target.value);
-        // setNum(e.target.value.slice(0, limit));
-
         const limit = 2;
         setInput({
             ...input,
@@ -126,9 +118,8 @@ function PokemonCreate() {
                 type: [...input.type, e.target.value],
             });
         }
+        // console.log(input);
     };
-    // console.log(input)
-
 
     //****************      RENDERIZACION DEL COMPONENTE     *****/    
     return (
@@ -181,9 +172,8 @@ function PokemonCreate() {
                                     name="weight"
                                     value={input.weight}
                                     onChange={handleChange}
-                                    // min={1}
-                                    // max={99}
-                                    maxLength={5}
+                                    min={1}
+                                    max={99}
                                     placeholder="Weight"
                                 />
                                 {!errors.weight ? null : <span className="cmp-form-valid_number_right">{errors.weight}</span>}
@@ -247,7 +237,7 @@ function PokemonCreate() {
                         </li>
                         <li>
                             <label htmlFor="">Type Pokemon</label>
-                            <select multiple="multiple" name='type' onChange={handleSelect} >
+                            <select multiple="multiple" name='type' onChange={handleSelect} value={input.type} >
                                 {
                                     type.map((e, i) => (
                                         <option key={i} > {e} </option>

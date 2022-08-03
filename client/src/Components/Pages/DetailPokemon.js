@@ -1,25 +1,27 @@
 import "../Css/DetailPokemon.css";
-import { searchById } from "../../Actions/Actions";
+import { searchById, deletePokemon} from "../../Actions/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect } from "react";
 import Loading from "../Loading/Gastly.gif";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import Remove from "../Icons/remove";
 
 
 function DetailPokemon(props) {
     const dispatch = useDispatch();
     // let history = useHistory();
+    const detail = useSelector((state) => state.pokemonDetail);
+    const history = useHistory();
 
     useEffect(() => {
         dispatch(searchById(props.match.params.id));
     }, [dispatch]);
-
-    // function handleClick(props) {
-    //     console.log(props)
-    //     history.push("/home");
-    // }
-    const detail = useSelector((state) => state.pokemonDetail);
-
+    
+    function removePokemon (id, name){
+        dispatch(deletePokemon(id))
+        alert(`Removing ${name}`)
+        history.push("/home");
+    }
     return (
         <div className="cmp-container-detail">
             {/* <h2>{}Pagina del detalle de cada pokemon</h2> */}
@@ -56,12 +58,18 @@ function DetailPokemon(props) {
                                 <input type="range" className={"range"} value={detail[0].weight} /> <span className="cmp-number-range" >{detail[0].weight}  </span>
                             </div>
                         </div>
+                        {detail[0].createdInDb ?
+                        <div className="delete">
+                            <button className="tooltip" onClick={e => (removePokemon(detail[0].id, detail[0].name))}>
+                            <Remove />
+                            {/* {detail[0].createdInDb ? <i class="fa-solid fa-trash-can fa-xl btn-delete" onClick={e => (removePokemon(detail[0].id, detail[0].name))}></i> : null} */}
+                            <span className="tooltiptext">Remove</span>
+                            </button>
+                        </div>
+                        : null} 
                     </div>
                 </div>
             )}
-            {/* <button type="button" onClick={e => (handleClick(detail[0].createdInDb, detail[0].id))}>
-                Back
-            </button> */}
         </div>
     );
 }
