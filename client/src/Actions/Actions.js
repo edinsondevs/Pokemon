@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 export const typePokemons = () => {
     return async (dispatch) => {
         let type = await axios.get('http://localhost:3001/types');
@@ -57,7 +58,7 @@ export const searchById = (id) => {
     return async function (dispatch) {
         let pokemonDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
         let pokemonId = pokemonDetail.data
-        return  dispatch({
+        return dispatch({
             type: 'SEARCH_BY_ID',
             payload: pokemonId
         })
@@ -68,5 +69,17 @@ export const createPokemons = (payload) => {
     console.log(payload)
     return async function (dispatch) {
         await axios.post('http://localhost:3001/pokemons', payload)
+    }
+}
+
+export const deletePokemon = (id) => {
+
+    return async function (dispatch) {
+        let newAllPokemons = await axios.delete(`http://localhost:3001/delete/${id}`)
+        
+        return dispatch({
+            type: 'DELETE_POKEMON',
+            payload: newAllPokemons
+        })
     }
 }
