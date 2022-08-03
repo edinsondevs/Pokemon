@@ -43,6 +43,18 @@ h2 {
     justify-content: center;
     align-items: center;
     width: 50em;
+    align-self: center;
+    text-transform: capitalize;
+}
+
+.cmp-detail-right h2::first-letter {
+    font-size: 2.5em;
+    color: deeppink;
+    font-weight: 800;
+}
+
+h2 {
+    text-transform: capitalize;
 }
 
 .cmp-detail_img {
@@ -53,24 +65,23 @@ h2 {
 }
 
 .cmp-columns {
-    display: grid; 
+    display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
-    
-    grid-template-areas: 
-     'label0 label1';
-    
+    grid-template-areas:
+        'label0 label1';
     gap: 100px;
     height: 100%;
 }
 
 #left {
     grid-area: label0;
-    
- }
- #right {
+
+}
+
+#right {
     grid-area: label1;
- } 
+}
 
 
 .cmp-detail_img:hover {
@@ -82,5 +93,75 @@ h2 {
 }
 
 .range {
-    accent-color: deeppink;
+    accent-color: #ff1493;
+}
+
+.delete {
+    height: 50px;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+/* .btn-delete:hover {
+    cursor: pointer;
+} */
+
+/****************************************************************************************************************************************************************/
+
+/* From uiverse.io by @hannahyockel */
+button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 0px solid transparent;
+    /* background-color: rgba(237, 42, 224, 0.08); */
+
+    background-color: rgb(255, 20, 147, 0.08);
+    border-radius: 1.25em;
+    transition: all 0.2s linear;
+}
+
+button:hover {
+    box-shadow: 3.4px 2.5px 4.9px rgba(0, 0, 0, 0.025),
+        8.6px 6.3px 12.4px rgba(0, 0, 0, 0.035),
+        17.5px 12.8px 25.3px rgba(0, 0, 0, 0.045),
+        36.1px 26.3px 52.2px rgba(0, 0, 0, 0.055),
+        99px 72px 143px rgba(0, 0, 0, 0.08);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 4em;
+    background-color: rgba(0, 0, 0, 0.253);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 110%;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgba(0, 0, 0, 0.253) transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }
