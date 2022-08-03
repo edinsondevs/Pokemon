@@ -107,6 +107,11 @@ export default function reducer(state = initialState, action) {
             
         //  ********************************************           CREACION DE POKEMON     ********************************************************************************/
 
+        case 'DELETE_POKEMON':
+            return {
+                ...state,
+            }
+
         default:
             return state
     }
