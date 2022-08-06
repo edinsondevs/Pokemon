@@ -15,9 +15,6 @@ function PokemonCreate() {
 
     const type = useSelector((state) => state.typePoke)
 
-    const [num, setNum] = useState('');
-    // const [disabled, setDisabled] = useState('')
-
     const [errors, setErrors] = useState({});
     const [input, setInput] = useState({
         sprite: "",
@@ -30,12 +27,12 @@ function PokemonCreate() {
         speed: "",
         type: [],
     });
-    
+
     const history = useHistory();
 
     const handleSubmit = (e) => {
         const validate = validateInputs(input.name, input.weight, input.height, input.hp, input.attack, input.defense, input.speed, input.type)
-        
+
         if (validate) {
             // alert(input)
             dispatch(createPokemons(input))
@@ -109,7 +106,7 @@ function PokemonCreate() {
         }))
     };
 
-    const handleSelect = (e) => {
+    const handleCheckbox = (e) => {
         if (input.type.includes(e.target.value)) {
             return "Pokemon Type exists";
         } else {
@@ -118,7 +115,6 @@ function PokemonCreate() {
                 type: [...input.type, e.target.value],
             });
         }
-        // console.log(input);
     };
 
     //****************      RENDERIZACION DEL COMPONENTE     *****/    
@@ -126,7 +122,7 @@ function PokemonCreate() {
         <div className="container-form">
             <form className="my-form" onSubmit={(e) => handleSubmit(e)}>
                 <div>
-                    <h1>Create Pokemon!</h1>
+                    <h1 className="title-form">Create Pokemon!</h1>
                     <ul>
                         <li>
                             <div className="grid grid-2">
@@ -236,14 +232,33 @@ function PokemonCreate() {
                             </div>
                         </li>
                         <li>
-                            <label htmlFor="">Type Pokemon</label>
-                            <select multiple="multiple" name='type' onChange={handleSelect} value={input.type} >
-                                {
-                                    type.map((e, i) => (
-                                        <option key={i} > {e} </option>
-                                    ))
-                                }
-                            </select>
+                            <div className="grid grid-1">
+                                <label htmlFor="">Type Pokemon</label>                               
+                                <ul className="type-poke-list">
+                                    {type.map(( name, index) => {
+                                        return ( 
+                                        <label className='container'>
+                                            <li key={index}>
+                                                <div className="type-poke-list-item">
+                                                    <div className="left-section">
+                                                        <input
+                                                            type="checkbox"
+                                                            id={`custom-checkbox-${index}`}
+                                                            name='type'
+                                                            value={name}
+                                                            onChange={handleCheckbox}
+                                                        />
+                                                        <div class="checkmark"></div>
+                                                        <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </label>
+                                        );
+                                        })
+                                    }                                    
+                                </ul>
+                            </div>
                         </li>
                         <li>
                             <div className="grid grid-3">

@@ -9,7 +9,6 @@ import Remove from "../Icons/remove";
 
 function DetailPokemon(props) {
     const dispatch = useDispatch();
-    // let history = useHistory();
     const detail = useSelector((state) => state.pokemonDetail);
     const history = useHistory();
 
@@ -24,7 +23,6 @@ function DetailPokemon(props) {
     }
     return (
         <div className="cmp-container-detail">
-            {/* <h2>{}Pagina del detalle de cada pokemon</h2> */}
             {detail.length === 0 ? (
                 <img src={Loading} alt="" className="loading" />
             ) : (
@@ -62,7 +60,6 @@ function DetailPokemon(props) {
                         <div className="delete">
                             <button className="tooltip" onClick={e => (removePokemon(detail[0].id, detail[0].name))}>
                             <Remove />
-                            {/* {detail[0].createdInDb ? <i class="fa-solid fa-trash-can fa-xl btn-delete" onClick={e => (removePokemon(detail[0].id, detail[0].name))}></i> : null} */}
                             <span className="tooltiptext">Remove</span>
                             </button>
                         </div>

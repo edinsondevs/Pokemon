@@ -54,7 +54,7 @@ function Home() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(searchByName(name.toLocaleLowerCase()))
+    dispatch(searchByName(name))
     setName('')
   }
 
@@ -91,7 +91,12 @@ function Home() {
         </select>
 
         {/* //! ***********************  SEARCH     ***********************************************************/}
-        <input type='search' name='search' value={name} id='search-poke' placeholder='Search' onChange={(e) => handleInputName(e.target.value)} />
+        {/* <input type='search' name='search' value={name} id='search-poke' placeholder='Search' onChange={(e) => handleInputName(e.target.value)} /> */}
+        <div className="form__group field">
+            <input required="" placeholder="Search" className="form__field" value={name} type="input" onChange={(e) => handleInputName(e.target.value)}  />
+                <label className="form__label" for="name">Name Pokemon</label>
+        </div>
+        {/* <SearchBar /> */}
         <input type='button' value="Search" name='submit' id='submit' onClick={handleSubmit} className='btn-all-poke'/>
       </div>
             <Paginate pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginate={paginate} />
