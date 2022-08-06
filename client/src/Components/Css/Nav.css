@@ -7,9 +7,7 @@
 .cmp-nav {
     align-items: flex-start;
     display: flex;
-    /* justify-content: space-between; */
     justify-content: space-evenly;
-    /* filter: drop-shadow(7px 5px 5px #ecb51ee4  );  */
 }
 
 .pokemon-logo{
@@ -77,18 +75,10 @@
 #leftcolumn {
     width: 12em;
     float: left;
-    /* margin-left: -98%; */
     margin-top: 8em;
-    /* height: 5vh; */
     text-decoration: none;
-    
 }
 
-/* #wrapper {
-    width: 100vw;
-    margin: 0 auto;
-    color: #fff;
-} */
 
 #header {
     float: left;
@@ -111,7 +101,6 @@
     margin-left: 300px;
     margin-top: -20px;
     -webkit-text-stroke: 1px #ecb51ee4;
-    /* -webkit-filter: drop-shadow(2px 2px 20px #ec731e); */
     z-index: 20;
 }
 
@@ -139,13 +128,3 @@
 	box-shadow: 3px 3px 6px 0px #ecb51ee4;
     font-size: auto;
 }
-/* 
-.btn-all-poke {
-    background-color: transparent;
-	color: #fff;
-	border: none;
-	cursor: pointer;
-	border-radius: 7px;
-	padding: 0.5rem;
-	box-shadow: 3px 3px 6px 0px #ecb51ee4;
-} */

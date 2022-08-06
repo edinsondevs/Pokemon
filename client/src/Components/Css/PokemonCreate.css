@@ -1,62 +1,13 @@
-/* .cont-Create {
-    color: #fff;
-    width: 360px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-}
-
-.container-form {
-    display: inline-flex
-} */
-
 :root {
     --white: #afafaf;
     --red: #e31b23;
-    --bodyColor: #292a2b;
-    --borderFormEls: hsl(0, 0%, 10%);
+    --borderFormEls: hsla(60, 3%, 19%, 0.659);
     --bgFormEls: hsl(0, 0%, 14%);
-    --bgFormElsFocus: hsl(0, 7%, 20%);
+    --shadowPage: #ecb51ee4;
 }
 
-
-a {
-    color: inherit;
-}
-
-input,
-select,
-textarea,
 button {
-    font-family: inherit;
-    font-size: 100%;
-}
-
-button,
-label {
     cursor: pointer;
-}
-
-select {
-    appearance: none;
-}
-
-/* Remove native arrow on IE */
-select::-ms-expand {
-    display: none;
-}
-
-/*Remove dotted outline from selected option on Firefox*/
-/*https://stackoverflow.com/questions/3773430/remove-outline-from-select-box-in-ff/18853002#18853002*/
-/*We use !important to override the color set for the select on line 99*/
-select:-moz-focusring {
-    color: transparent !important;
-    text-shadow: 0 0 0 var(--white);
-}
-
-textarea {
-    resize: none;
 }
 
 ul {
@@ -64,36 +15,44 @@ ul {
 }
 
 body {
-    /* font: 18px/1.5 "Open Sans", sans-serif; */
-    background: var(--bodyColor);
     color: var(--white);
-    margin: 1.5rem 0;
 }
 
 .container-form {
     max-width: 800px;
-    margin: 0 auto;
-    padding: 0 1.5rem;
+    margin: 20px auto;
+    padding: 10rem 1rem 0 1rem;
 }
 
+.my-form {
+    box-shadow: 0px 0px 20px 9px var(--shadowPage);
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+}
 
+.title-form{
+    filter: drop-shadow(5px 3px 3px var(--shadowPage)); 
+}
 /* FORM ELEMENTS
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .my-form h1 {
     margin-bottom: 1.5rem;
+    padding-top: 0.5rem;
 }
 
 .my-form li,
 .my-form .grid>*:not(:last-child) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.my-form select,
+
 .my-form input,
-.my-form textarea,
 .my-form button {
-    width: 100%;
+    border-radius: 0.5rem;
+    width: 90%;
     line-height: 1.5;
+    margin: auto;
     padding: 15px 10px;
     border: 1px solid var(--borderFormEls);
     color: var(--white);
@@ -102,49 +61,14 @@ body {
         transform 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
 }
 
-.my-form textarea {
-    height: 170px;
-}
 
 .my-form ::placeholder {
     color: inherit;
-    /*Fix opacity issue on Firefox*/
-    opacity: 1;
 }
 
 .my-form select:focus,
-.my-form input:focus,
-.my-form textarea:focus,
-.my-form button:enabled:hover,
-.my-form button:focus,
-.my-form input[type="checkbox"]:focus+label {
-    background: var(--bgFormElsFocus);
-}
-
-.my-form select:focus,
-.my-form input:focus,
-.my-form textarea:focus {
+.my-form input:focus {
     transform: scale(1.02);
-}
-
-.my-form *:required,
-.my-form select {
-    background-repeat: no-repeat;
-    background-position: center right 12px;
-    background-size: 15px 15px;
-}
-
-.my-form *:required {
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg);
-}
-
-/* .my-form select {
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/down.svg);
-} */
-
-.my-form *:disabled {
-    cursor: default;
-    filter: blur(2px);
 }
 
 
@@ -152,7 +76,7 @@ body {
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .my-form .required-msg {
     display: none;
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/asterisk.svg) no-repeat center left / 15px 15px;
+    background: url(https://api.popsy.co/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBakFGIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--86dee87c3ef8d917fd96c9c5dc679763f965c0b6/Asterisco.png) no-repeat center left / 20px 20px;
     padding-left: 20px;
 }
 
@@ -172,81 +96,9 @@ body {
     transition: transform 0.4s ease-in-out;
 }
 
-.my-form button .back {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-110%, -50%);
-}
-
-.my-form button:enabled:hover .back,
-.my-form button:focus .back {
-    transform: translate(-50%, -50%);
-}
-
 .my-form button:enabled:hover .front,
 .my-form button:focus .front {
     transform: translateX(110%);
-}
-
-
-/* CUSTOM CHECKBOX
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.my-form input[type="checkbox"] {
-    position: absolute;
-    left: -9999px;
-}
-
-.my-form input[type="checkbox"]+label {
-    position: relative;
-    display: inline-block;
-    padding-left: 2rem;
-    transition: background 0.3s cubic-bezier(0.57, 0.21, 0.69, 1.25);
-}
-
-.my-form input[type="checkbox"]+label::before,
-.my-form input[type="checkbox"]+label::after {
-    content: '';
-    position: absolute;
-}
-
-.my-form input[type="checkbox"]+label::before {
-    left: 0;
-    top: 6px;
-    width: 18px;
-    height: 18px;
-    border: 2px solid var(--white);
-}
-
-.my-form input[type="checkbox"]:checked+label::before {
-    background: var(--red);
-}
-
-.my-form input[type="checkbox"]:checked+label::after {
-    left: 7px;
-    top: 7px;
-    width: 6px;
-    height: 14px;
-    border-bottom: 2px solid var(--white);
-    border-right: 2px solid var(--white);
-    transform: rotate(45deg);
-}
-
-
-/* FOOTER
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
-/* footer {
-    font-size: 1rem;
-    text-align: right;
-    backface-visibility: hidden;
-} */
-
-footer a {
-    text-decoration: none;
-}
-
-footer span {
-    color: var(--red);
 }
 
 
@@ -265,6 +117,7 @@ footer span {
     .my-form .grid-3 {
         grid-template-columns: auto auto auto;
         align-items: center;
+        margin: 0rem 6rem 0rem 6rem;
     }
 
     .my-form .grid>*:not(:last-child) {
@@ -276,16 +129,6 @@ footer span {
     }
 }
 
-@media screen and (min-width: 541px) {
-    .my-form input[type="checkbox"]+label::before {
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    .my-form input[type="checkbox"]:checked+label::after {
-        top: 3px;
-    }
-}
 
 /**************************************************************
 /
@@ -294,19 +137,107 @@ footer span {
 /**************************************************************/
 
 .cmp-form-valid_name,
-.cmp-form-valid_number_left{
-    color: rgb(200, 255, 0);
-    /* font-size: .8rem; */
+.cmp-form-valid_number_left {
+    color: var(--red);
     font-weight: bold;
     font-size: 0.6rem;
     position: absolute;
-    right: 25rem;
+    right: 28rem;   
 }
-.cmp-form-valid_number_right{
-    color: rgb(200, 255, 0);
-    /* font-size: .8rem; */
+
+.cmp-form-valid_number_right {
+    color: var(--red);
     font-weight: bold;
     font-size: 0.6rem;
     position: absolute;
-    right: 0rem;
+    right: 2rem;
+}
+
+
+/**************************************************************
+/
+/        CHECKBOX
+/
+/**************************************************************/
+
+.type-poke-list {
+    width: 30%;
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    width: fit-content;
+    max-width: 80%;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 600px) {
+    .type-poke-list {
+        width: 90%;
+    }
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.container {
+    text-align: -webkit-center;
+    width: 4rem;
+    display: flow-root;
+    flex: auto;
+    position: relative;
+    cursor: pointer;
+    font-size: 0.8rem;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 1.3em;
+    width: 1.3em;
+    background: #606062;
+    border-radius: 5px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.30), 0px 1px 1px rgba(0, 5);
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: var(--shadowPage);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 0.45em;
+    top: 0.25em;
+    width: 0.25em;
+    height: 0.5em;
+    border: solid rgb(11, 11, 11);
+    border-width: 0 0.15em 0.15em 0;
+    transform: rotate(45deg);
 }
