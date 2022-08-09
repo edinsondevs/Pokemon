@@ -3,8 +3,9 @@ const { Pokemon, Type } = require('../db');
 
 const app = Router();
 
+//  *****************    RUTA DE CREACION DEL POKEMON     ********************************************************************************/
+
 app.post('/', async (req, res) => {
-    //   res.send('POST request to the homepage add pokemon')
     const {sprite, name, weight, height, hp, attack, defense, speed, type } = req.body
 
     if( !sprite || !name || !weight || !height || !hp || !attack || !defense || !speed || !type ){
@@ -20,16 +21,19 @@ app.post('/', async (req, res) => {
             attack,
             defense,
             speed,
-        
         })
 
-    let tipoPokemon = await Type.findAll({
-        where: {
-            name: type
-        }
-    })
-    newPokemon.addType(tipoPokemon)
-    res.send("El Pokemon ha sido creado exitosamente")
+//  **********************     BUSCA LOS TIPOS DE POKEMON RECIBIDOS PARA OBTENER EL ID    ********************************************************************************/
+
+let tipoPokemon = await Type.findAll({
+    where: {
+        name: type
+    }
+})
+
+//  **********************     ASOCIA LOS TIPOS DE POKEMON RECIBIDOS AL POKEMON CREADO     ********************************************************************************/
+    newPokemon.addType(tipoPokemon)    
+    res.send(`El Pokemon ha sido creado exitosamente`)
     } catch (error) {
         res.status(404).send(error.message)
     }}
