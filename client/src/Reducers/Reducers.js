@@ -2,7 +2,7 @@ const initialState = {
     typePoke: [],
     allPokemons: [],
     clonPokemons: [],
-    pokemonDetail:[]
+    pokemonDetail: []
 
 }
 export default function reducer(state = initialState, action) {
@@ -68,7 +68,7 @@ export default function reducer(state = initialState, action) {
                     return 0;
                 })
             }
-             else if (orderby === 'major') {                 //                    ORDENAMINETO POR ATTACK DE MAYOR A MENOR
+            else if (orderby === 'major') {                 //                    ORDENAMINETO POR ATTACK DE MAYOR A MENOR
                 orderPokemons.sort((a, b) => {
                     if (a.attack > b.attack) return -1;
                     if (a.attack < b.attack) return 1;
@@ -91,25 +91,32 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 allPokemons: action.payload
             })
-            
+
         //  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
         case 'SEARCH_BY_ID':
             return ({
                 ...state,
-                pokemonDetail:action.payload
+                pokemonDetail: action.payload
             })
         //  ********************************************           CREACION DE POKEMON     ********************************************************************************/
-        
+
         case 'CREATE_POKEMON':
             return {
                 ...state,
             }
-            
-        //  ********************************************           CREACION DE POKEMON     ********************************************************************************/
+
+        //  ********************************************           ELIMINACION DE POKEMON     ********************************************************************************/
 
         case 'DELETE_POKEMON':
             return {
                 ...state,
+            }
+
+        //  ********************************************           RESET DEL STATE DE LOADING     ********************************************************************************/
+        case 'RESET_POKEMON_DETAIL':
+            return {
+                ...state,
+                pokemonDetail: []
             }
 
         default:

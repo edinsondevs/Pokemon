@@ -1,6 +1,14 @@
 import axios from 'axios';
 
+//  ********************************************           RESET DEL STATE DE LOADING     ********************************************************************************/
+export const resetPokemonDetail = (payload) => {
+    return {
+        type: 'RESET_POKEMON_DETAIL',
+        payload
+    }
+}
 
+//  *********************************           BUSQUEDA DE TODOS LOS TIPOS DE POKEMONS     ***********************************************************************/
 export const typePokemons = () => {
     return async (dispatch) => {
         let type = await axios.get('http://localhost:3001/types');
@@ -12,6 +20,7 @@ export const typePokemons = () => {
 
 }
 
+//  *********************************           BUSQUEDA DE TODOS LOS POKEMONS     ****************************************************************************/
 export const getAllPokemons = () => {
     return async (dispatch) => {
         let getAllPokemons = await axios.get('http://localhost:3001/pokemons');
@@ -22,6 +31,7 @@ export const getAllPokemons = () => {
     }
 }
 
+//  ********************************************           FILTRO POR TYPO        ********************************************************************************/
 export const searchByType = (payload) => {
     return {
         type: 'SEARCH_BY_TYPE',
@@ -29,6 +39,7 @@ export const searchByType = (payload) => {
     }
 }
 
+//  ********************************************           FILTRO POR CREACION    *******************************************************************************/        
 export const searchByCreation = (payload) => {
     return {
         type: 'SEARCH_BY_CREATION',
@@ -36,6 +47,7 @@ export const searchByCreation = (payload) => {
     }
 }
 
+//  ********************************************           ORDENAMINETOS          ********************************************************************************/
 export const getOrdering = (payload) => {
     return {
         type: 'GET_ORDERING',
@@ -43,6 +55,7 @@ export const getOrdering = (payload) => {
     }
 }
 
+//  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
 export const searchByName = (payload) => {
     return async function (dispatch) {
         let json = await axios.get('http://localhost:3001/pokemons?name=' + payload);
@@ -54,6 +67,7 @@ export const searchByName = (payload) => {
     }
 }
 
+//  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
 export const searchById = (id) => {
     return async function (dispatch) {
         let pokemonDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
@@ -65,21 +79,22 @@ export const searchById = (id) => {
     }
 }
 
+//  ********************************************           CREACION DE POKEMON     ********************************************************************************/
 export const createPokemons = (payload) => {
     console.log(payload)
     return async function (dispatch) {
         await axios.post('http://localhost:3001/pokemons', payload)
     }
 }
+//  ********************************************           ELIMINACION DE POKEMON     ********************************************************************************/
 
 export const deletePokemon = (id) => {
-
     return async function (dispatch) {
         let newAllPokemons = await axios.delete(`http://localhost:3001/delete/${id}`)
-        
         return dispatch({
             type: 'DELETE_POKEMON',
             payload: newAllPokemons
         })
     }
 }
+
