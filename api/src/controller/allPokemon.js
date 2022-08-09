@@ -1,16 +1,16 @@
 const { Router } = require('express');
-const { Op, QueryTypes  } = require('sequelize');
+const { Op, QueryTypes } = require('sequelize');
 const { getAllPoke } = require('../controller/pokemonController.js');
 
 const app = Router();
 
-// BUSCO TODOS LOS POKEMONES PARA MOSTRAR EN LA PRINCIPAL
+//  *****************     BUSQUEDA DE TODOS LOS POKEMONS PARA MOSTRAR EN LA PRINCIPAL    ****************************************************************************/
 app.get('/', async (req, res) => {
-    const { name } = req.query
+    const name = req.query.name
     const allPokemons = await getAllPoke();
     if (name) {
         try {
-            const pokemonName = await allPokemons.filter(e => e.name == name);
+            const pokemonName = await allPokemons.filter(e => e.name.toLowerCase() === name.toLowerCase());
             if (pokemonName.length === 0) pokemonName.push("NotFound");  // SI EL POKEMON NO EXISTE PUSHEO EL STRING NOTFOUND
             pokemonName.length > 0 ?
                 res.status(200).json(pokemonName) :         // MANDO EL MENSAJE TODO EL RESULTADO ENCONTRADO
@@ -55,15 +55,15 @@ app.get('/', async (req, res) => {
     }
 })
 
-// BUSCO LOS POKEMONES POR ID
+//  ************************   BUSQUEDA DE POKEMON POR ID     ********************************************************************************/
 app.get('/:id', async (req, res) => {
     const { id } = req.params;
     const allPokemons = await getAllPoke();
     try {
-            const pokemonId = await allPokemons.filter(e => e.id == id)
-            pokemonId.length ?
-                res.status(200).json(pokemonId) :
-                res.status(404).send('Pokemon not found')
+        const pokemonId = await allPokemons.filter(e => e.id == id)
+        pokemonId.length ?
+            res.status(200).json(pokemonId) :
+            res.status(404).send('Pokemon not found')
     } catch (error) {
         console.log(error);
     }
