@@ -5,9 +5,9 @@ import { searchById } from '../../Actions/Actions'
 import { Link } from 'react-router-dom';
 import More from '../Icons/Lupa';
 
-function Cards({ name, img, type, id, createdInDb }) {
+function Cards({ name, img, type, id }) {
     const dispatch = useDispatch()
-
+    
     const handleDetail = (id) => {
             dispatch(searchById(id))
         // }
