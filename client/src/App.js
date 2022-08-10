@@ -8,9 +8,11 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch >
+          {/* Landing Page */}
           <Route path="/" exact >
             <LandingPage />
           </Route>
+          {/* Resto de la app */}
           <Route path="/*" >
             <Init />
           </Route>
