@@ -26,7 +26,7 @@ function Nav() {
                 <nav className="navbar">
                     <ul className="navbar-nav">
                         <li>
-                            <Link exact to="/home" className="nav-link">Home</Link>
+                            <Link to="/home" className="nav-link">Home</Link>
                         </li>
                         <li>
                             <Link to="/create" className="nav-link">Create Pokemons</Link>
