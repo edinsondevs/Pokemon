@@ -13,11 +13,11 @@ function Init() {
             < >
                 <Nav />               {/*  COMPONENT NAV */}
                 <Switch >
-                    <Route exact path="/home" component={Home} />
+                    <Route path="/home" component={Home} />
                     <Route exact path="/pokemons" component={Cards} />
-                    <Route exact path="/create" component={PokemonCreate} />
-                    <Route exact path="/pokemons/:id" component={DetailPokemon} />
-                    <Route exact path="/about" component={About} />
+                    <Route path="/create" component={PokemonCreate} />
+                    <Route path="/pokemons/:id" component={DetailPokemon} />
+                    <Route path="/about" component={About} />
                     <Route path='*' component={Page404}/>
                 </Switch>
                 {/* <Footer /> */}
