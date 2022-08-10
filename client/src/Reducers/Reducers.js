@@ -42,6 +42,9 @@ export default function reducer(state = initialState, action) {
             let respCreation = action.payload === 'pokeDb' ?
                 searchCreation.filter(e => e.createdInDb) :
                 searchCreation.filter(e => !e.createdInDb)
+                if (respCreation.length === 0) {
+                    respCreation.push("NotFound")
+                }
             return {
                 ...state,
                 allPokemons: respCreation
