@@ -10,6 +10,7 @@ const typeRoutes = require('../controller/typesPokemon.js');
 const allPokemons = require('../controller/allPokemon.js');
 const addPokemons = require('../controller/addPokemon.js');
 const deletePokemons = require('../controller/deletePokemon.js');
+const updatePokemons = require('../controller/updatePokemon.js');
 
 //*************************************************************************************************************************************************************/
 // Configurar los routers
@@ -18,6 +19,7 @@ app.use('/types', typeRoutes)
 app.use('/pokemons', allPokemons)
 app.use('/pokemons', addPokemons)
 app.use('/delete', deletePokemons);
+app.use('/update', updatePokemons);
 
 
 //*************************************************************************************************************************************************************/
