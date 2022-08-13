@@ -31,9 +31,9 @@ function Nav() {
                         <li>
                             <Link to="/create" className="nav-link">Create Pokemons</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link to="/about" className="nav-link">About</Link>
-                        </li>
+                        </li> */}
                     </ul>
                 </nav>
             </div>
