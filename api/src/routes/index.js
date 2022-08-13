@@ -1,5 +1,4 @@
 const { Router } = require('express');
-// const { Pokemon, Type } = require('../db.js');
 
 
 const app = Router();
