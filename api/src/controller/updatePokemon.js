@@ -1,13 +1,12 @@
 const { Router } = require('express');
-const { Pokemon, Type, pokemon_type } = require('../db');
-const { QueryTypes } = require('sequelize');
+const { Pokemon, Type } = require('../db');
 
 const app = Router();
 app.put('/:id', async (req, res) => {
     const { sprite, name, weight, height, hp, attack, defense, speed, type } = req.body
     const id = req.params.id
-    
-    const modifiedPoke = await Pokemon.update({
+
+    await Pokemon.update({
         name,
         sprite,
         weight,
@@ -22,40 +21,26 @@ app.put('/:id', async (req, res) => {
             id: id,
         }
     });
-    // include: Type,
+
+    const pokemon_type = await Pokemon.findByPk(id, {
+        include: [{
+            model: Type,
+            through: {
+                attributtes: [name, id],
+            }
+        }]
+    });
+
     let tipoPokemon = await Type.findAll({
-        attributes: ['id'],
         where: {
             name: type
-        }
+        },
+        attributes: ['id']        
     })
-    // console.log(tipoPokemon[0].id) 
-    console.log(tipoPokemon, id) 
-    pokemon_type.update({ typeId: tipoPokemon }, {
-        where: {
-            pokemonId: id
-        }
-    });
-    
-    console.clear()
-    res.send(modifiedPoke)
-    // Type.update({ typeId: tipoPokemon[0].id }, {
-        //     where: {
-            //         pokemonId: id
-            //     }
-            // });
-            
-            // pokemon_type.destroy({
-                //     where: {
-                    //       pokemonId: id
-                    //     }
-                    //   });
-                    
-                    // await sequelize.query(`UPDATE pokemon_type set "typeId" = 11 WHERE 
-                    // "pokemonId" = ${id} and "typeId" = 15`)
-                    
-                    // modifiedPoke.addType(tipoPokemon)
-                    // res.send(`The pokemon ${modifiedPoke} has been modified successfully`);
+
+    await pokemon_type.setTypes(tipoPokemon)
+    res.send(`El Pokemon ha sido modificado exitosamente`)
+
 });
 
 module.exports = app
