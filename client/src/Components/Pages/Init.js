@@ -4,20 +4,18 @@ import Home  from './Home.js';
 import Nav from './Nav.js';
 import PokemonCreate  from './PokemonCreate.js';
 import DetailPokemon  from './DetailPokemon.js';
-// import About  from './About.js';
 import Page404  from './PageError.js';;
 
 function Init() {
     return (
         <BrowserRouter>
             < >
-                <Nav />               {/*  COMPONENT NAV */}
+                <Nav />               {/*  COMPONENT NAV fuera para que renderice siempre*/}
                 <Switch >
                     <Route path="/home" component={Home} />
                     <Route exact path="/pokemons" component={Cards} />
                     <Route path="/create" component={PokemonCreate} />
                     <Route path="/pokemons/:id" component={DetailPokemon} />
-                    {/* <Route path="/about" component={About} /> */}
                     <Route path='*' component={Page404}/>
                 </Switch>
             </>
