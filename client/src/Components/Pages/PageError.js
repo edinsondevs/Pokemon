@@ -1,7 +1,6 @@
 import '../Css/Page404.css'
 
-
-
+// --------------------------------         PAGINA DE ERROR 404        --------------------------------
 function PageError() {
     return (
         <>
@@ -12,7 +11,6 @@ function PageError() {
                     <a href="/home" className="link-button">Go to Home Page</a>
                 </div>
         </>
-
     )
 }
 
