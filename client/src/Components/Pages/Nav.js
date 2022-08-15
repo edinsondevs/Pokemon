@@ -1,14 +1,13 @@
 import { React } from 'react';
 import { Link } from 'react-router-dom';
-
 import '../Css/Nav.css';
-
 import Pikachu from '../Images/top-pikachu-2.gif'
 import Pokeball from '../Images/pokemon-pokeball.gif'
 
 function Nav() {
     return (
         <div id="wrapper">
+            {/*----------------------------------------------       SECCION HEADER    --------------------------------------------------------- */}
             <div id="header">
                 <div className="cmp-nav">
                     <div className="shrink0">
@@ -22,6 +21,7 @@ function Nav() {
                     </div>
                 </div>
             </div>
+            {/*----------------------------------------------       COLUMNA IZQUIERDA    --------------------------------------------------------- */}
             <div id="leftcolumn">
                 <nav className="navbar">
                     <ul className="navbar-nav">
@@ -31,9 +31,6 @@ function Nav() {
                         <li>
                             <Link to="/create" className="nav-link">Create Pokemons</Link>
                         </li>
-                        {/* <li>
-                            <Link to="/about" className="nav-link">About</Link>
-                        </li> */}
                     </ul>
                 </nav>
             </div>
