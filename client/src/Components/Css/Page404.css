@@ -203,7 +203,7 @@ html {
     margin-left: 55rem;
 }
 
-.action-link-wrap a {
+.action-link-wrap button {
     text-decoration: none;
     background-color: transparent;
     color: #fff;
