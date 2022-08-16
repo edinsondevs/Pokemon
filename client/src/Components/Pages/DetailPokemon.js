@@ -8,19 +8,23 @@ import Remove from "../Icons/remove";
 
 
 function DetailPokemon(props) {
+    //!---------------------------------------      DECLARACION DE CONSTANTES       ------------------------------------------
     const dispatch = useDispatch();
-    const detail = useSelector((state) => state.pokemonDetail);
     const history = useHistory();
-
+    //! --------------------------------------      DECLARACION DE LOS ESTADO       ------------------------------------------
+    const detail = useSelector((state) => state.pokemonDetail);
+    
+    //!---------------------------------------      DECLARACION DE HOOKS            ------------------------------------------
     useEffect(() => {
         dispatch(searchById(props.match.params.id));
-    }, [dispatch]);
+    }, [dispatch,props.match.params.id]);
     
     function removePokemon (id, name){
         dispatch(deletePokemon(id))
         alert(`Removing ${name}`)
         history.push("/home");
     }
+    //!---------------------------------------      COMPONENTE A RENDERIZAR          ------------------------------------------
     return (
         <div className="cmp-container-detail">
             {detail.length === 0 ? (
@@ -66,7 +70,7 @@ function DetailPokemon(props) {
                         : null} 
                     </div>
                 </div>
-            )}
+            )}                    
         </div>
     );
 }

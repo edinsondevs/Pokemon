@@ -48,39 +48,40 @@ function PokemonCreate() {
         let err = {}
         if (/[^ A-Za-z]/.test(input.name)) {  // NO PERMITE NUMEROS NI CARACTERES ESPECIALES      
             err = { name: "Special characters are not allowed" }
-        } else if (input.name.length < 5) {
+        } 
+        if (input.name.length < 5) {
             err = { name: "You must enter at least 5 characters" }
         }
-        else if (input.weight.length > 2) {
+        if (input.weight.length > 2) {
             err = { weight: "Max Score 99" }
         }
-        else if (input.height.length > 2) {
+        if (input.height.length > 2) {
             err = { height: "Max Score 99" }
         }
-        else if (input.hp.length > 2) {
+        if (input.hp.length > 2) {
             err = { hp: "Max Score 99" }
         }
-        else if (input.attack.length > 2) {
+        if (input.attack.length > 2) {
             err = { attack: "Max Score 99" }
         }
-        else if (input.defense.length > 2) {
+        if (input.defense.length > 2) {
             err = { defense: "Max Score 99" }
         }
-        else if (input.speed.length > 2) {
+        if (input.speed.length > 2) {
             err = { speed: "Max Score 99" }
         }
 
-        else {
-            err = {
-                name: "",
-                weight: "",
-                height: "",
-                hp: "",
-                attack: "",
-                "defense": "",
-                "speed": "",
-            }
-        }
+        // else {
+        //     err = {
+        //         name: "",
+        //         weight: "",
+        //         height: "",
+        //         hp: "",
+        //         attack: "",
+        //         "defense": "",
+        //         "speed": "",
+        //     }
+        // }
         return err
     }
 
@@ -119,12 +120,12 @@ function PokemonCreate() {
 
     //****************      RENDERIZACION DEL COMPONENTE     *****/    
     return (
-        <div className="container-form">
+        <div className="container-form" >
             <form className="my-form" onSubmit={(e) => handleSubmit(e)}>
                 <div>
                     <h1 className="title-form">Create Pokemon!</h1>
                     <ul>
-                        <li>
+                        <li >
                             <div className="grid grid-2">
                                 <input
                                     className='required-msg'
@@ -248,7 +249,7 @@ function PokemonCreate() {
                                                             value={name}
                                                             onChange={handleCheckbox}
                                                         />
-                                                        <div class="checkmark"></div>
+                                                        <div className="checkmark"></div>
                                                         <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
                                                     </div>
                                                 </div>
