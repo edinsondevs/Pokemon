@@ -36,10 +36,10 @@ function PokemonCreate() {
         if (validate) {
             // alert(input)
             dispatch(createPokemons(input))
-            alert("Pokemon Creado")
+            alert("Pokemon Created")
             history.push("/home");
         } else {
-            alert("Faltan Datos")
+            alert("Complete the information")
         }
     }
 
@@ -71,17 +71,6 @@ function PokemonCreate() {
             err = { speed: "Max Score 99" }
         }
 
-        // else {
-        //     err = {
-        //         name: "",
-        //         weight: "",
-        //         height: "",
-        //         hp: "",
-        //         attack: "",
-        //         "defense": "",
-        //         "speed": "",
-        //     }
-        // }
         return err
     }
 
