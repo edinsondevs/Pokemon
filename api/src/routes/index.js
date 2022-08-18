@@ -16,7 +16,7 @@ const updatePokemons = require('../controller/updatePokemon.js');
 // Ejemplo: router.use('/auth', authRouter);
 app.use('/types', typeRoutes)
 app.use('/pokemons', allPokemons)
-app.use('/pokemons', addPokemons)
+app.use('/addpokemon', addPokemons)
 app.use('/delete', deletePokemons);
 app.use('/update', updatePokemons);
 
