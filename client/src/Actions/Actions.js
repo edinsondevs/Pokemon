@@ -83,7 +83,7 @@ export const searchById = (id) => {
 export const createPokemons = (payload) => {
     console.log(payload)
     return async function (dispatch) {
-        await axios.post('http://localhost:3001/pokemons', payload)
+        await axios.post('http://localhost:3001/addpokemon', payload)
     }
 }
 //  ********************************************           ELIMINACION DE POKEMON     ********************************************************************************/
