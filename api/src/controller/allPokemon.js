@@ -12,9 +12,8 @@ app.get('/', async (req, res) => {
         try {
             const pokemonName = await allPokemons.filter(e => e.name.toLowerCase() === name.toLowerCase());
             if (pokemonName.length === 0) pokemonName.push("NotFound");  // SI EL POKEMON NO EXISTE PUSHEO EL STRING NOTFOUND
-            pokemonName.length > 0 ?
-                res.status(200).json(pokemonName) :         // MANDO EL MENSAJE TODO EL RESULTADO ENCONTRADO
-                res.status(200).json(pokemonName)       // SI EL POKEMON NO EXISTE MANDO EL MENSAJE NOT FOUND
+            pokemonName.length > 0 &&
+                res.status(200).json(pokemonName)          // MANDO EL MENSAJE TODO EL RESULTADO ENCONTRADO
         } catch (error) {
 
             const pokeDb = await Pokemon.findAll({
@@ -56,17 +55,34 @@ app.get('/', async (req, res) => {
 })
 
 //  ************************   BUSQUEDA DE POKEMON POR ID     ********************************************************************************/
-app.get('/:id', async (req, res) => {
+/* app.get('/:id', async (req, res) => {
     const { id } = req.params;
-    const allPokemons = await getAllPoke();
+    //-------------   BUSQUEDA CON ASYNC AWAIT       
+     const allPokemons = await getAllPoke();
     try {
-        const pokemonId = await allPokemons.filter(e => e.id == id)
+            const pokemonId = await allPokemons.filter(e => e.id == id)
+            pokemonId.length ?
+                res.status(200).json(pokemonId) :
+                res.status(404).send('Pokemon not found')
+        } catch (error) {
+        console.log(error);
+    } 
+}) */
+
+app.get('/:id', (req, res) => {
+    const { id } = req.params;
+    //-------------   BUSQUEDA CON PROMESAS
+    getAllPoke()
+    .then(allPokemons => {
+        const pokemonId = allPokemons.filter(e => e.id == id)
+        console.log("Entre al status 200 con promesas")
         pokemonId.length ?
             res.status(200).json(pokemonId) :
-            res.status(404).send('Pokemon not found')
-    } catch (error) {
+            res.status(404).send(`Pokemon not found ${id}`)
+    })
+    .catch(error => {
         console.log(error);
-    }
+    })
 })
 
 module.exports = app
