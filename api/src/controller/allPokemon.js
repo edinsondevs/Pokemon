@@ -1,6 +1,8 @@
 const { Router } = require('express');
 const { Op, QueryTypes } = require('sequelize');
-const { getAllPoke } = require('../controller/pokemonController.js');
+const { getAllPoke, poke } = require('../controller/pokemonController.js');
+const { URL_POKEMON } = require('../utils/GlobalConst.js');
+const axios = require('axios');
 
 const app = Router();
 
@@ -53,6 +55,18 @@ app.get('/', async (req, res) => {
         }
     }
 })
+
+
+app.get('/new', async (req, res) =>{
+    const pokemon = await poke()
+    try{
+        return res.send(pokemon)
+    }catch(error){
+        console.log(error);
+    }
+
+})
+
 
 //  ************************   BUSQUEDA DE POKEMON POR ID     ********************************************************************************/
 /* app.get('/:id', async (req, res) => {

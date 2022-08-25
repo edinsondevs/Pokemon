@@ -8,7 +8,6 @@ const getPokeapi = async () => { //Llamado doble a la api y a su suburl para tra
     try {       
     const firstApiPage = await axios.get(URL_POKEMON);                  //  Consulto los primeros 20 pokemons de la api
     const secondApiPage = await axios.get(firstApiPage.data.next);      //  Consulto los siguientes 20 pokemons de la api a partir de la primera busqueda
-    
     const allPokemons = firstApiPage.data.results.concat(secondApiPage.data.results);   //  Concateno los resultados de la primera y segunda busqueda   
 
     const PokemonProps = await Promise.all(                                   //  Consulto los datos de cada pokemon de la api
@@ -36,6 +35,15 @@ const getPokeapi = async () => { //Llamado doble a la api y a su suburl para tra
         return error;
     }
 };
+
+const poke = async () => {
+ const data = await axios.get(URL_POKEMON);
+ const data2 = data.data.results;
+
+ return (data2[5].name)
+}
+
+
 
 
 // 2 TRAE LOS POKEMONES DE LA BASE DE DATOS
@@ -67,6 +75,8 @@ const getPokedb = async () => {
     }
 }
 
+
+
 // 3 UNION DE TODOS LOS POKEMONES DE API Y BASE DE DATOS
 //me permite unir el array que me devuelve la pokeapi (40) pokemons + los pokemons creados en la DB pokemons
 
@@ -83,4 +93,5 @@ const getAllPoke = async () => {
 
 module.exports = {
     getAllPoke,
+    poke
 }
