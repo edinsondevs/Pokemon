@@ -1,74 +1,72 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
-# Individual Project - Henry Pokemon
+# Individual Project - Pokemon
 
-<img height="150" src="./pokemon.png" />
+<img height="150" src="./pokemon.jpg" />
 
-## Objetivos del Proyecto
+-------------
 
-- Construir una App utlizando React, Redux, Node y Sequelize.
-- Afirmar y conectar los conceptos aprendidos en la carrera.
-- Aprender mejores prácticas.
-- Aprender y practicar el workflow de GIT.
-- Usar y practicar testing.
+Es una aplicación en la cual se pueden ver los distintos Pokemon utilizando la api externa [pokeapi](https://pokeapi.co/) 
 
-## Horarios y Fechas
+Scripts de Inicio de la Aplicación
+-------------
 
-El proyecto tendrá una duración máxima de tres semanas. En el caso de que completan todas las tareas antes de dicho lapso podrán avisar a su Instructor para coordinar una fecha de presentación del trabajo (DEMO).
+Para ejecutar correr la aplicación es necesario ejecutar los sigientes comandos en la terminal de windows o git bash:
 
-## Comenzando
+1. Para levantar el cliente: abrir otra terminal y posicionarse en la carpeta /client y ejecutar el comando `npm run start` + enter
 
- 1. Forkear el repositorio para tener una copia del mismo en sus cuentas
- 2. Clonar el repositorio en sus computadoras para comenzar a trabajar
+2. Para levantar el servidor: abrir otra terminal y posicionarse en la carpeta /api y ejecutar el comando `npm run start` + enter 
 
-Tendrán un `boilerplate` con la estructura general tanto del servidor como de cliente.
+Esta aplicación se abrira en tu navegador en http://localhost:3000
 
-__IMPORTANTE:__ Es necesario contar minimamente con la última versión estable de Node y NPM. Asegurarse de contar con ella para poder instalar correctamente las dependecias necesarias para correr el proyecto.
+Funcionalidad de la aplicación
+-------------
 
-Actualmente las versiónes necesarias son:
+En esta aplicación el usuario podra visualizar una variedad de Pokemones y podrá:
 
-- __Node__: 12.18.3 o mayor
-- __NPM__: 6.14.16 o mayor
+#### :heavy_check_mark:Filtrar Pokemones:
 
-Para verificar que versión tienen instalada:
+Tendra la posibilidad de buscar solo por algun tipo de Pokemon en particular dentro de las opciones mostradas.
 
-```bash
-node -v
-npm -v
-```
+####  :heavy_check_mark:Buscar Pokemones:
 
-__ACLARACIÓN:__ Las dependencias actuales se encuentran en las versiones que venimos trabajando durante el bootcamp.
+Tendra la posibilidad de buscar varios Pokemones introduciendo algun nombre en el buscador y al pulsar el boton search se mostra el Pokemon segun el nombre que el usuario introdujo.
 
-Versiones:
+#### :heavy_check_mark:Ordenamiento
 
-- __react__: 17.0.1
-- __react-dom__: 17.0.1
-- __react-router-dom__: 5.2.0
-- __redux__: 4.0.5
-- __react-redux__: 7.2.3
+Tendra la opción de ordenar por nombre y/o score de manera ascendente o descendente.
 
-Está permitido, __bajo su responsabilidad__, actualizar las dependencias a versiones más actuales.
+#### :heavy_check_mark:Detalle de unn Pokemon
 
-> __IMPORTANTE:__ Versiones mas actuales podrían presentar configuraciones diferentes respecto a las versiones en las que venimos trabajando durante el bootcamp.
+Tendra la posibilidad de visualizar el detalle con información del Pokemon al pulsar en el boton + que se visualiza en cada card.
 
-## BoilerPlate
+#### :heavy_check_mark:Creación de Pokemones
 
-El boilerplate cuenta con dos carpetas: `api` y `client`. En estas carpetas estará el código del back-end y el front-end respectivamente.
+El usuario tendra la posibilidad de crear un Pokemon si asi lo deseara, pulsando sobre la opción que se visualiza en el lateral izquierdo create Pokemon, que lo dirijirá al formulario de creación y una vez completado los datos esta se guardara en la base de datos y se podra visualizar luego en la pantalla principal en conjunto con las otras recetas predefinidas.
 
-En `api` crear un archivo llamado: `.env` que tenga la siguiente forma:
+#### :heavy_check_mark:Borrado
 
-```env
-DB_USER=usuariodepostgres
-DB_PASSWORD=passwordDePostgres
-DB_HOST=localhost
-```
+Tendra la opción de eliminar solamente el Pokemon que haya creado el usuario y este boton se habilitara si el Pokemon seleccionado fue creada por el usuario.
 
-Reemplazar `usuariodepostgres` y `passwordDePostgres` con tus propias credenciales para conectarte a postgres. Este archivo va ser ignorado en la subida a github, ya que contiene información sensible (las credenciales).
+Tecnologías Utilizadas:
+-------------
+<div align="center">
 
-Adicionalmente será necesario que creen desde psql una base de datos llamada `pokemon`
+<a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="70" height="70"/> </a> 
+<a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="70" height="70"/> </a> 
+<a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="70" height="70"/> </a> 
 
-El contenido de `client` fue creado usando: Create React App.
+<a href="https://expressjs.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="express" width="70" height="70"/> </a> 
+<a href="https://nodejs.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="nodejs" width="70" height="70"/> </a> 
+<a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="70" height="70"/> </a> 
 
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="70" height="70"/> </a> 
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="70" height="70"/> </a> 
+<a href="https://redux.js.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="redux" width="70" height="70"/> </a> 
+
+</div>
+
+
+<!--
 ## Enunciado
 
 La idea general es crear una aplicación en la cual se puedan ver los distintos Pokemon utilizando la api externa [pokeapi](https://pokeapi.co/) y a partir de ella poder, entre otras cosas:
