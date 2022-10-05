@@ -11,7 +11,8 @@ export const resetPokemonDetail = (payload) => {
 //  *********************************           BUSQUEDA DE TODOS LOS TIPOS DE POKEMONS     ***********************************************************************/
 export const typePokemons = () => {
     return async (dispatch) => {
-        let type = await axios.get('http://localhost:3001/types');
+        let type = await axios.get('/types');
+        // let type = await axios.get('http://localhost:3001/types');
         return dispatch({
             type: 'GET_TYPES_POKEMON',
             payload: type.data
@@ -23,7 +24,8 @@ export const typePokemons = () => {
 //  *********************************           BUSQUEDA DE TODOS LOS POKEMONS     ****************************************************************************/
 export const getAllPokemons = () => {
     return async (dispatch) => {
-        let getAllPokemons = await axios.get('http://localhost:3001/pokemons');
+        let getAllPokemons = await axios.get('/pokemons');
+        // let getAllPokemons = await axios.get('http://localhost:3001/pokemons');
         return dispatch({
             type: 'GET_ALL_POKE',
             payload: getAllPokemons.data
@@ -58,7 +60,8 @@ export const getOrdering = (payload) => {
 //  ********************************************           BUSQUEDA POR NOMBRE     ********************************************************************************/
 export const searchByName = (payload) => {
     return async function (dispatch) {
-        let json = await axios.get('http://localhost:3001/pokemons?name=' + payload);
+        let json = await axios.get('/pokemons?name=' + payload);
+        // let json = await axios.get('http://localhost:3001/pokemons?name=' + payload);
         let dataApi = json.data
         return dispatch({
             type: 'SEARCH_BY_NAME',
@@ -70,7 +73,8 @@ export const searchByName = (payload) => {
 //  ********************************************           BUSQUEDA POR ID     ********************************************************************************/
 export const searchById = (id) => {
     return async function (dispatch) {
-        let pokemonDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
+        let pokemonDetail = await axios.get(`/pokemons/${id}`)
+        // let pokemonDetail = await axios.get(`http://localhost:3001/pokemons/${id}`)
         let pokemonId = pokemonDetail.data
         return dispatch({
             type: 'SEARCH_BY_ID',
@@ -83,14 +87,16 @@ export const searchById = (id) => {
 export const createPokemons = (payload) => {
     console.log(payload)
     return async function (dispatch) {
-        await axios.post('http://localhost:3001/addpokemon', payload)
+        await axios.post('/addpokemon', payload)
+        // await axios.post('http://localhost:3001/addpokemon', payload)
     }
 }
 //  ********************************************           ELIMINACION DE POKEMON     ********************************************************************************/
 
 export const deletePokemon = (id) => {
     return async function (dispatch) {
-        let newAllPokemons = await axios.delete(`http://localhost:3001/delete/${id}`)
+        let newAllPokemons = await axios.delete(`/delete/${id}`)
+        // let newAllPokemons = await axios.delete(`http://localhost:3001/delete/${id}`)
         return dispatch({
             type: 'DELETE_POKEMON',
             payload: newAllPokemons
