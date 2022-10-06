@@ -17,8 +17,9 @@ const whiteList = [
   'https://pokemon-go.up.railway.app/*',
   'https://pokemon-go.up.railway.app/pokemons',
   'https://pokemon-go.up.railway.app/types',
-  'https://pokemon-edinsondevs.vercel.app/*',
-  'https://app-poke.vercel.app/*'
+  'https://pokemon-edinsondevs.vercel.app',
+  'https://app-poke.vercel.app/',
+  'https://app-poke.vercel.app'
 ]
   
   server.use(cors({origin:whiteList}));
