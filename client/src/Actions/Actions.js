@@ -15,7 +15,7 @@ export const typePokemons = () => {
         // let type = await axios.get('http://localhost:3001/types');
         return dispatch({
             type: 'GET_TYPES_POKEMON',
-            payload: type
+            payload: type.data
         })
     }
 }
@@ -27,7 +27,7 @@ export const getAllPokemons = () => {
         // let getAllPokemons = await axios.get('http://localhost:3001/pokemons');
         return dispatch({
             type: 'GET_ALL_POKE',
-            payload: getAllPokemons
+            payload: getAllPokemons.data
         })
     }
 }
