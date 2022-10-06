@@ -14,10 +14,11 @@ server.name = 'API';
 const whiteList = [
   'http://localhost:3000', 
   'http://localhost:3001', 
-  'https://pokemon-go.up.railway.app/',
+  'https://pokemon-go.up.railway.app/*',
   'https://pokemon-go.up.railway.app/pokemons',
   'https://pokemon-go.up.railway.app/types',
-  'https://pokemon-edinsondevs.vercel.app'
+  'https://pokemon-edinsondevs.vercel.app/*',
+  'https://app-poke.vercel.app/*'
 ]
   
   server.use(cors({origin:whiteList}));
