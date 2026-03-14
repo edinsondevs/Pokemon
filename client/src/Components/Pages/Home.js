@@ -18,7 +18,7 @@ function Home() {
     //!---------------------------------------       DECLARACION DE LOS ESTADOS      ----------------------------------------
     const [name, setName] = useState('')
     const [currentPage, setCurrentPage] = useState(1)               //  Estado de paginado
-    const [pokemonsPerPage, setPokemonsPerPage] = useState(12)      //  cantidad de pokemones por pagina
+    const [pokemonsPerPage] = useState(12)      //  cantidad de pokemones por pagina
     const indexLastPage = currentPage * pokemonsPerPage             //  Index del ultimo pokemon, multiplico la pag actual por la cantida de poke por paginas
     const [refresh, setRefresh] = useState(false)                   //  Estado para refrescar la pagina
 
