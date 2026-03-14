@@ -12,7 +12,7 @@ const {
 // });
 
 let sequelize =
-  process.env.RAILWAY_ENVIRONMENT === "production"
+  process.env.NODE_ENV === "production"
     ? new Sequelize({
       database: DB_NAME,
       dialect: "postgres",
@@ -35,7 +35,8 @@ let sequelize =
         ssl: true,
       })
     : new Sequelize(
-        `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`,
+        `postgresql://postgres:#$:ct<;Xgo53P"r^<Mp'9;y;uEoy@db.sipqakcxjvzjmxywypfw.supabase.co:5432/postgres`,
+        // `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/pokemon`,
         { logging: false, native: false }
       );
 
