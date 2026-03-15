@@ -7,7 +7,7 @@
     "client"
   ],
   "scripts": {
-    "build": "npm install && cd client && npm run build"
+    "build": "npm install && cd client && npm install && npm run build && cd .. && mkdir -p public && cp -r client/build/* public/"
   },
   "dependencies": {
     "express": "^4.17.1",
