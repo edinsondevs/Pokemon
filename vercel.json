@@ -14,12 +14,27 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "destination": "api/index.js"
+    },
+    {
+      "source": "/pokemons(.*)",
+      "destination": "api/index.js"
+    },
+    {
+      "source": "/types(.*)",
+      "destination": "api/index.js"
+    },
+    {
+      "source": "/addpokemon(.*)",
+      "destination": "api/index.js"
+    },
+    {
+      "source": "/delete/(.*)",
+      "destination": "api/index.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/client/$1"
+      "destination": "client/$1"
     }
   ]
 }
-
