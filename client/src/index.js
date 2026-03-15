@@ -6,8 +6,7 @@ import { Provider } from "react-redux";
 import store from "./Store/Store";
 import axios from 'axios';
 
-axios.defaults.baseURL =
-  process.env.REACT_APP_API;
+axios.defaults.baseURL = process.env.REACT_APP_API || "";
 
 
 ReactDOM.render(
