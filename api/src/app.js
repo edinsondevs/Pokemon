@@ -36,6 +36,7 @@ server.use((req, res, next) => {
   next();
 });
 
+server.use('/api', routes);
 server.use('/', routes);
 
 // Error catching endware.
