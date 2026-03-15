@@ -20,7 +20,7 @@ let sequelize = new Sequelize({
   password: DB_PASSWORD,
   logging: false, 
   native: false,
-  dialectOptions: process.env.NODE_ENV === 'production' ? {
+  dialectOptions: (process.env.NODE_ENV === 'production' || process.env.VERCEL) ? {
     ssl: {
       require: true,
       rejectUnauthorized: false,
