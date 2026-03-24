@@ -23,14 +23,10 @@ require("dotenv").config(); //para leer las variables de entorno
 
 const PORT = process.env.PORT || 3001;
 
-if (process.env.NODE_ENV !== 'production') {
-  conn.sync({ force: false }).then(() => {
-    server.listen(PORT, () => {
-      console.log(`%s listening at ${PORT} `); // eslint-disable-line no-console
-    });
+conn.sync({ force: false }).then(() => {
+  server.listen(PORT, () => {
+    console.log(`Server listening at ${PORT}`);
   });
-} else {
-  conn.sync({ force: false });
-}
+});
 
 module.exports = server;

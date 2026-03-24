@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Css/PokemonCreate.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { typePokemons, createPokemons } from '../../Actions/Actions'

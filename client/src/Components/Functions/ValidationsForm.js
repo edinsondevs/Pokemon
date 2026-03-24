@@ -2,7 +2,7 @@
 
 //     // input.nameimport { validateInputs } from '..';
 // }  
-const validateInputs = (name, weight, height, hp, attack, defense, speed, type) => {
+export const validateInputs = (name, weight, height, hp, attack, defense, speed, type) => {
     //    console.log(name)
     // console.log(name, weight, height, hp, attack,defense,speed,type) 
     // if (!name && !weight && !height && !hp && !attack && !defense && !speed && !type) 
@@ -32,8 +32,4 @@ const validateInputs = (name, weight, height, hp, attack, defense, speed, type) 
         return false
     }
     return true
-};
-
-module.exports = {
-    validateInputs
 };

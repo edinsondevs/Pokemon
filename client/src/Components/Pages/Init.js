@@ -1,3 +1,4 @@
+import React from 'react';
 import { Route, BrowserRouter, Switch } from 'react-router-dom'
 import Cards from './Cards.js';
 import Home  from './Home.js';

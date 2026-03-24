@@ -1,3 +1,4 @@
+import React from 'react';
 function Email() {
   return (
     <svg

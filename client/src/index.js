@@ -6,14 +6,14 @@ import { Provider } from "react-redux";
 import store from "./Store/Store";
 import axios from 'axios';
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "";
+axios.defaults.baseURL = import.meta.env.VITE_APP_API || "";
 
 
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
       <App />
-    </React.StrictMode>,
+    </React.StrictMode>
   </Provider>,
   document.getElementById('root')
 );

@@ -33,6 +33,7 @@
     "supertest-session": "^4.1.0"
   },
   "overrides": {
-    "underscore": "1.13.6"
+    "underscore": "1.13.6",
+    "js-yaml": "^4.1.1"
   }
 }

@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Css/Page404.css'
 
 function Page404() {

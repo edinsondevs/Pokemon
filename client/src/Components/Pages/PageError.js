@@ -1,3 +1,4 @@
+import React from 'react';
 import '../Css/Page404.css'
 import { useHistory } from "react-router-dom";
 

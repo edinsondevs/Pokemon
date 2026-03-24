@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Css/LandingPage.css'
 import Portada from '../Images/portada_2.png'
